@@ -63,18 +63,18 @@ namespace Library_Management_System.Controller
         {
             try
             {
-                // Fetching members from the model (using Entity Framework)
+             
                 var members = _memberModel.GetMembers();
 
-                // Passing the list of members to the view's DisplayMembers method
+            
                 viewMember.DisplayMembers(members);
 
-                return members; // Return the list of members
+                return members; 
             }
             catch (Exception e)
             {
                 viewMember.ShowMessage($"Error fetching members: {e.Message}");
-                return new List<Member>(); // Return an empty list on error
+                return new List<Member>();
             }
         }
     }

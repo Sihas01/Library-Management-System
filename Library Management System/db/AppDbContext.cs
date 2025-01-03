@@ -13,7 +13,7 @@ namespace Library_Management_System.db
         {
             optionsBuilder.UseMySql(
                 "server=localhost;database=Library_Managemnt_System;user=root;password=mysql1234",
-                new MySqlServerVersion(new Version(8, 0, 27))  // Specify the MySQL version you're using.
+                new MySqlServerVersion(new Version(8, 0, 27))  
             );
 
 
@@ -24,7 +24,7 @@ namespace Library_Management_System.db
             modelBuilder.Entity<Member>()
                 .HasKey(m => m.Id); // Specify the primary key if needed
 
-            // Additional configurations if necessary
+            
         }
     }
 }

@@ -26,9 +26,9 @@ namespace Library_Management_System.Model
 
         public List<Member> GetMembers() 
         {
-            using (var context = new AppDbContext()) // Ensure proper options or DI
+            using (var context = new AppDbContext()) 
             {
-                var members = context.Members.ToList(); // Get all members from the database
+                var members = context.Members.ToList();
 
                 return members;
             }
