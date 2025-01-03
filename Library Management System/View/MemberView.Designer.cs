@@ -28,12 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MemberView";
+            name = new TextBox();
+            email = new TextBox();
+            mobileNumber = new TextBox();
+            password = new TextBox();
+            register = new Button();
+            SuspendLayout();
+            // 
+            // name
+            // 
+            name.Location = new Point(225, 128);
+            name.Name = "name";
+            name.Size = new Size(291, 23);
+            name.TabIndex = 0;
+            // 
+            // email
+            // 
+            email.Location = new Point(225, 189);
+            email.Name = "email";
+            email.Size = new Size(291, 23);
+            email.TabIndex = 1;
+            // 
+            // mobileNumber
+            // 
+            mobileNumber.Location = new Point(225, 237);
+            mobileNumber.Name = "mobileNumber";
+            mobileNumber.Size = new Size(291, 23);
+            mobileNumber.TabIndex = 2;
+            // 
+            // password
+            // 
+            password.Location = new Point(225, 294);
+            password.Name = "password";
+            password.Size = new Size(291, 23);
+            password.TabIndex = 3;
+            // 
+            // register
+            // 
+            register.Location = new Point(336, 353);
+            register.Name = "register";
+            register.Size = new Size(75, 23);
+            register.TabIndex = 4;
+            register.Text = "Register";
+            register.UseVisualStyleBackColor = true;
+            register.Click += register_Click;
+            // 
+            // MemberView
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(628, 475);
+            Controls.Add(register);
+            Controls.Add(password);
+            Controls.Add(mobileNumber);
+            Controls.Add(email);
+            Controls.Add(name);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "MemberView";
+            Text = "MemberView";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private TextBox name;
+        private TextBox email;
+        private TextBox mobileNumber;
+        private TextBox password;
+        private Button register;
     }
 }

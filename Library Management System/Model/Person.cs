@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Model
 {
-    internal class Person
+    public class Person
     {
-        private string _id;
+        private int _id;
         private string _name;
         private string _email;
         private string _phoneNumber;
 
-        public Person(string id, string name, string email, string phoneNumber)
+        public Person() { }
+        public Person( string name, string email, string phoneNumber)
         {
-            _id = id;
             _name = name;
             _email = email;
             _phoneNumber = phoneNumber;
         }
 
-        public string Id
+        public int Id
         {
             get { return _id; }
-            set { _id = value; }
+            
         }
 
         public String Name

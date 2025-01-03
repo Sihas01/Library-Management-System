@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Model
 {
-    internal class Member:Person
+    public class Member:Person
     {
         private string _password;
-        public Member(string memberId,string name,string email,string phoneNumber,string password):base(memberId,name,email,phoneNumber) 
+        public Member() { }
+        public Member(string name,string email,string phoneNumber,string password):base(name,email,phoneNumber) 
         { 
             _password = password;
         }
