@@ -24,6 +24,7 @@ namespace Library_Management_System.Model
         public int Id
         {
             get { return _id; }
+            set { _id = value; }
             
         }
 

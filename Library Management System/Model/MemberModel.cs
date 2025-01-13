@@ -28,7 +28,15 @@ namespace Library_Management_System.Model
         {
             using (var context = new AppDbContext()) 
             {
-                var members = context.Members.ToList();
+                var members = context.Members
+                    .Select(m => new Member
+                    {
+                        Id = m.Id,
+                        Name = m.Name,
+                        Email = m.Email,
+                        PhoneNumber = m.PhoneNumber,
+                    })
+                    .ToList();
 
                 return members;
             }
