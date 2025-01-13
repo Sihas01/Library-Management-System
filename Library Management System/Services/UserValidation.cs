@@ -8,12 +8,12 @@ namespace Library_Management_System.Services
 {
     internal class UserValidation
     {
-        public static void ValidateUser(string name, string email, string phoneNumber,string password)
+        public static void ValidateUser(string name, string email, string phoneNumber)
         {
             ValidateName(name);
             ValidateEmail(email);
             ValidatePhoneNumber(phoneNumber);
-            ValidatePassword(password);
+            
         }
 
 

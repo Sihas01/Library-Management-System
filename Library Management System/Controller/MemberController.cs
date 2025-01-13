@@ -34,11 +34,11 @@ namespace Library_Management_System.Controller
                 string name = _memberView.Name;
                 string email = _memberView.Email;
                 string phoneNumber = _memberView.PhoneNumber;
-                string password = _memberView.Password;
+               
 
-                UserValidation.ValidateUser(name, email, phoneNumber, password);
+                UserValidation.ValidateUser(name, email, phoneNumber);
 
-                bool success = _memberModel.CreateUser(name, email,phoneNumber, password);
+                bool success = _memberModel.CreateUser(name, email,phoneNumber);
 
                 if (success)
                 {

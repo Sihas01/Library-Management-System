@@ -10,6 +10,16 @@ namespace Library_Management_System
             //Form1_Load(null, EventArgs.Empty);
         }
 
+        private void nightControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cyberButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //public void Form1_Load(object sender, EventArgs e) 
         //{
         //    Member member1 = new Member("usero1", "John", "john@gmail.com", "0751171926","1234");

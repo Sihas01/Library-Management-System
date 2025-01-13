@@ -10,9 +10,9 @@ namespace Library_Management_System.Model
 {
     internal class MemberModel
     {
-        public bool CreateUser(string name, string email,string phoneNumber, string password)
+        public bool CreateUser(string name, string email,string phoneNumber)
         {
-            var member = new Member( name, email, phoneNumber, password);
+            var member = new Member( name, email, phoneNumber);
 
             using (var context = new AppDbContext())
             {
