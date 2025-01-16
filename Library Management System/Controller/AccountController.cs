@@ -39,11 +39,12 @@ namespace Library_Management_System.Controller
                 //UserValidation.ValidateName(name);
                 //UserValidation.ValidatePassword(password);
 
-                member1 = member.GetMember(name);
+                member1 = member.GetMember(name,password);
                 if (member1 != null) 
                     {
                     LoggedInUser.Instance.CurrentUser = member1;
                     login.ShowMessage("User Found");
+
                     if(member1.HasChangedPassword == false)
                     {
                         
@@ -54,6 +55,7 @@ namespace Library_Management_System.Controller
                     else
                     {
                         login.ShowMessage("menu");
+                        
                     }
                 }
                 else
@@ -80,13 +82,15 @@ namespace Library_Management_System.Controller
                 {
                     string password = msg.Password;
                     
-
-                    member1.Password = password;
-                   bool isUpdated =  member.UpdatePassword(member1);
+                    bool isUpdated =  member.UpdatePassword(member1,password);
                     if (isUpdated) {
                         msg.Hide();
                     }
-                    
+                    else
+                    {
+                        msg.ShowMessage("Failed to update password. Member not found.");
+                    }
+
                 }
                 else
                 {

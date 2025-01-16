@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BCrypt.Net;
+using Google.Protobuf.WellKnownTypes;
 using Library_Management_System.Services;
 
 namespace Library_Management_System.Model
@@ -15,14 +16,15 @@ namespace Library_Management_System.Model
         public Member() { }
         public Member(string name,string email,string phoneNumber):base(name,email,phoneNumber) 
         {
-            _hashedPassword = PasswordGenerator.GenerateNewPassword();
+            var generatedPassword = PasswordGenerator.GenerateNewPassword();
+            _hashedPassword = Hashedpassword(generatedPassword);
             _hasChangedPassword = false;
         }
 
         public string Password
         {
             get { return _hashedPassword; }
-            set { _hashedPassword = Hashedpassword(value); }
+            set { _hashedPassword = value; }
 
         }
 
@@ -41,7 +43,7 @@ namespace Library_Management_System.Model
 
         public void UpdatePassword(string password)
         {
-            Password = password;
+            Password = Hashedpassword(password);
             HasChangedPassword = true;
         }
        
