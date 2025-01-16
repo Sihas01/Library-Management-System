@@ -34,11 +34,11 @@ namespace Library_Management_System.Controller
                 string name = _memberView.Name;
                 string email = _memberView.Email;
                 string phoneNumber = _memberView.PhoneNumber;
-                string password = _memberView.Password;
+               
 
-                UserValidation.ValidateUser(name, email, phoneNumber, password);
+                UserValidation.ValidateUser(name, email, phoneNumber);
 
-                bool success = _memberModel.CreateUser(name, email,phoneNumber, password);
+                bool success = _memberModel.CreateUser(name, email,phoneNumber);
 
                 if (success)
                 {
@@ -59,23 +59,23 @@ namespace Library_Management_System.Controller
             }
         }
 
-        public List<Member> GetUser()
-        {
-            try
-            {
-                // Fetching members from the model (using Entity Framework)
-                var members = _memberModel.GetMembers();
+        //public List<Member> GetUser()
+        //{
+        //    try
+        //    {
+             
+        //        var members = _memberModel.GetMembers();
 
-                // Passing the list of members to the view's DisplayMembers method
-                viewMember.DisplayMembers(members);
+            
+        //        viewMember.DisplayMembers(members);
 
-                return members; // Return the list of members
-            }
-            catch (Exception e)
-            {
-                viewMember.ShowMessage($"Error fetching members: {e.Message}");
-                return new List<Member>(); // Return an empty list on error
-            }
-        }
+        //        return members; 
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        viewMember.ShowMessage($"Error fetching members: {e.Message}");
+        //        return new List<Member>();
+        //    }
+        //}
     }
 }

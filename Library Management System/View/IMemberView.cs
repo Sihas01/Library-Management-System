@@ -11,7 +11,6 @@ namespace Library_Management_System.View
         string Name { get; set; }
         string Email { get; set; }
         string PhoneNumber { get; set; }
-        string Password { get; set; }
         void ShowMessage(string message);
     }
 }

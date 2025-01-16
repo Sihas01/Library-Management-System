@@ -1,20 +1,42 @@
+using System.Xml.Linq;
+using Library_Management_System.Controller;
 using Library_Management_System.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Library_Management_System
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form,ILogin
     {
+        private AccountController accountController;
         public Form1()
         {
             InitializeComponent();
-            //Form1_Load(null, EventArgs.Empty);
+            accountController =  new AccountController(this);
+         
         }
 
-        //public void Form1_Load(object sender, EventArgs e) 
-        //{
-        //    Member member1 = new Member("usero1", "John", "john@gmail.com", "0751171926","1234");
-        //    label1.Text = member1.Name;
-        //    label2.Text = member1.Id;
-        //}
+        public string Name
+        {
+            get { return name.Text; }
+            set { name.Text = value; }
+        }
+
+       public string Password
+        {
+            get { return password.Text; }
+            set { password.Text = value; }
+        }
+
+        public void ShowMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
+        private void cyberButton1_Click(object sender, EventArgs e)
+        {
+            accountController.Login();
+        }
+
+  
     }
 }

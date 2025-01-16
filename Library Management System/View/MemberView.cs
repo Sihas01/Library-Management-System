@@ -39,18 +39,14 @@ namespace Library_Management_System.View
             set { mobileNumber.Text = value; }
         }
 
-        public string Password
-        {
-            get { return password.Text; }
-            set { password.Text = value; }
-        }
 
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
         }
 
-        private void register_Click(object sender, EventArgs e)
+ 
+        private void chatButtonRight1_Click(object sender, EventArgs e)
         {
             _memberController.CreateUser();
         }

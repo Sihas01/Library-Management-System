@@ -29,14 +29,20 @@ namespace Library_Management_System.View
         public void DisplayMembers(List<Member> members)
         {
             dataGridViewMembers.DataSource = null; 
-            dataGridViewMembers.DataSource = members; 
-
+            dataGridViewMembers.DataSource = members;
+            foreach (DataGridViewColumn column in dataGridViewMembers.Columns)
+            {
+                if (column.HeaderText == "Password" || column.Name == "Password")
+                {
+                    column.Visible = false; 
+                }
+            }
         }
 
         private void MemberView_Load(object sender, EventArgs e)
         {
             
-             _memberController.GetUser();
+             //_memberController.GetUser();
             
             
         }

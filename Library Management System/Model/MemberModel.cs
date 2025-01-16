@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using BCrypt.Net;
 using Library_Management_System.db;
 using Microsoft.VisualBasic.ApplicationServices;
 
@@ -10,28 +12,58 @@ namespace Library_Management_System.Model
 {
     internal class MemberModel
     {
-        public bool CreateUser(string name, string email,string phoneNumber, string password)
+        private readonly DatabaseHelper dbHelper;
+
+        public MemberModel()
         {
-            var member = new Member( name, email, phoneNumber, password);
+            dbHelper = new DatabaseHelper();
+        }
 
-            using (var context = new AppDbContext())
-            {
-                context.Members.Add(member);
-                context.SaveChanges();
-            }
+        public bool CreateUser(string name, string email,string phoneNumber)
+        {
+            var member = new Member( name, email, phoneNumber);
 
+         
+            dbHelper.InsertMember(member);
 
             return true;
         }
 
-        public List<Member> GetMembers() 
-        {
-            using (var context = new AppDbContext()) // Ensure proper options or DI
-            {
-                var members = context.Members.ToList(); // Get all members from the database
+        //public List<Member> GetMembers() 
+        //{
+            
 
-                return members;
+                
+            
+        //}
+
+        public Member GetMember(string name,string password) {
+
+            Member returnMember = null;
+           
+               var member = dbHelper.ViewMember(name);
+            if(member != null && BCrypt.Net.BCrypt.Verify(password, member.Password)  )
+            {
+                returnMember = member;
             }
+
+            return returnMember;
+        }
+
+        public bool UpdatePassword(Member member,string newPassword)
+        {
+            var memberDetails = dbHelper.ViewMember(member.Email);
+            if(memberDetails != null)
+            {
+                memberDetails.UpdatePassword(newPassword);
+                dbHelper.UpdateMemberPassword(memberDetails);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
