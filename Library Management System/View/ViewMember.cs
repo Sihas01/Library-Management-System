@@ -41,10 +41,10 @@ namespace Library_Management_System.View
 
         private void MemberView_Load(object sender, EventArgs e)
         {
-            
-             //_memberController.GetUser();
-            
-            
+
+            _memberController.GetUser();
+
+
         }
 
 

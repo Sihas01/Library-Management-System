@@ -59,23 +59,23 @@ namespace Library_Management_System.Controller
             }
         }
 
-        //public List<Member> GetUser()
-        //{
-        //    try
-        //    {
-             
-        //        var members = _memberModel.GetMembers();
+        public List<Member> GetUser()
+        {
+            try
+            {
 
-            
-        //        viewMember.DisplayMembers(members);
+                var members = _memberModel.GetMembers();
 
-        //        return members; 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        viewMember.ShowMessage($"Error fetching members: {e.Message}");
-        //        return new List<Member>();
-        //    }
-        //}
+
+                viewMember.DisplayMembers(members);
+
+                return members;
+            }
+            catch (Exception e)
+            {
+                viewMember.ShowMessage($"Error fetching members: {e.Message}");
+                return new List<Member>();
+            }
+        }
     }
 }
