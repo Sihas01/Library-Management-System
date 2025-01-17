@@ -55,6 +55,8 @@ namespace Library_Management_System.Controller
                     else
                     {
                         login.ShowMessage("menu");
+                        Dashboard dashboard = new Dashboard();
+                        dashboard.Show();
                         
                     }
                 }
