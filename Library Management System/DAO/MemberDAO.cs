@@ -96,9 +96,11 @@ namespace Library_Management_System.DAO
         {
             try
             {
+                member.UpdatePassword(newPassword);
                 List<string> setClauses = new List<string>
                 {
-                    $"password = '{newPassword}'"
+                    $"password = '{member.Password}'",
+                    $"hasChangedPassword = 1"
                 };
                 string condition = $"email = '{member.Email}'";
                 _database.Update("members", setClauses, condition);

@@ -21,10 +21,12 @@ namespace Library_Management_System.Model
             _memberDAO = new MemberDAO();
         }
 
-        public bool CreateUser(string name, string email,string phoneNumber)
+        public (bool, string) CreateUser(string name, string email,string phoneNumber)
         {
             var member = new Member(name, email, phoneNumber);
-            return _memberDAO.CreateMember(member);
+            bool isSuccess = _memberDAO.CreateMember(member);
+            string generatedPassword = member.GeneratedPassword;
+            return (isSuccess,generatedPassword);
         }
 
         public List<Member> GetMembers()
