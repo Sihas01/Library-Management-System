@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Library_Management_System.Model;
 using Library_Management_System.Services;
 using Library_Management_System.View;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Library_Management_System.Controller
 {
@@ -14,11 +15,13 @@ namespace Library_Management_System.Controller
         private readonly IMemberView _memberView;
         private readonly MemberModel _memberModel;
         private readonly ViewMember viewMember;
+        private readonly EmailController emailController;
 
         public MemberController(IMemberView memberView)
         {
             _memberView = memberView;
             _memberModel = new MemberModel();
+            emailController = new EmailController();
         }
 
         public MemberController(ViewMember viewMember)
@@ -38,10 +41,15 @@ namespace Library_Management_System.Controller
 
                 UserValidation.ValidateUser(name, email, phoneNumber);
 
-                bool success = _memberModel.CreateUser(name, email,phoneNumber);
+                var result = _memberModel.CreateUser(name, email,phoneNumber);
+                bool isSuccess = result.Item1;
+                string generatedPassword = result.Item2;
 
-                if (success)
+                if (isSuccess)
                 {
+                    string message = emailController.SendEmail(email, "Welcome to Our Service!", $"Hello {name},\nWelcome to our service!\n Use this for first Login : {generatedPassword}");
+                    
+                    _memberView.ShowMessage(message);
                     _memberView.ShowMessage("User created successfully");
                 }
                 else

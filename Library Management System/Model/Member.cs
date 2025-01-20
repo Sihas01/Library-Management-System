@@ -9,14 +9,15 @@ using Library_Management_System.Services;
 
 namespace Library_Management_System.Model
 {
-    public class Member:Person
+    public class Member : Person
     {
         private string _hashedPassword;
         private bool _hasChangedPassword;
+        private string generatedPassword;
         public Member() { }
-        public Member(string name,string email,string phoneNumber):base(name,email,phoneNumber) 
+        public Member(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
         {
-            var generatedPassword = PasswordGenerator.GenerateNewPassword();
+            generatedPassword = PasswordGenerator.GenerateNewPassword();
             _hashedPassword = Hashedpassword(generatedPassword);
             _hasChangedPassword = false;
         }
@@ -31,7 +32,7 @@ namespace Library_Management_System.Model
         public bool HasChangedPassword
         {
             get { return _hasChangedPassword; }
-            set { _hasChangedPassword = value ; }
+            set { _hasChangedPassword = value; }
 
         }
 
@@ -39,14 +40,17 @@ namespace Library_Management_System.Model
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
             return hashedPassword;
-         }
+        }
 
         public void UpdatePassword(string password)
         {
             Password = Hashedpassword(password);
             HasChangedPassword = true;
         }
-       
 
+        public string GeneratedPassword
+        {
+            get { return generatedPassword; }
+        }
     }
 }
