@@ -34,20 +34,21 @@
             name = new ReaLTaiizor.Controls.BigTextBox();
             email = new ReaLTaiizor.Controls.BigTextBox();
             mobileNumber = new ReaLTaiizor.Controls.BigTextBox();
-            chatButtonRight1 = new ReaLTaiizor.Controls.ChatButtonRight();
             poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
-            bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
-            button1 = new ReaLTaiizor.Controls.Button();
+            hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
+            hopeButton2 = new ReaLTaiizor.Controls.HopeButton();
+            panel1 = new Panel();
+            hopeButton3 = new ReaLTaiizor.Controls.HopeButton();
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             SuspendLayout();
             // 
             // name
             // 
-            name.BackColor = Color.Transparent;
+            name.BackColor = Color.White;
             name.Font = new Font("Tahoma", 11F);
             name.ForeColor = Color.DimGray;
             name.Image = null;
-            name.Location = new Point(45, 151);
+            name.Location = new Point(39, 132);
             name.MaxLength = 32767;
             name.Multiline = false;
             name.Name = "name";
@@ -64,7 +65,7 @@
             email.Font = new Font("Tahoma", 11F);
             email.ForeColor = Color.DimGray;
             email.Image = null;
-            email.Location = new Point(45, 216);
+            email.Location = new Point(39, 197);
             email.MaxLength = 32767;
             email.Multiline = false;
             email.Name = "email";
@@ -81,7 +82,7 @@
             mobileNumber.Font = new Font("Tahoma", 11F);
             mobileNumber.ForeColor = Color.DimGray;
             mobileNumber.Image = null;
-            mobileNumber.Location = new Point(45, 282);
+            mobileNumber.Location = new Point(39, 263);
             mobileNumber.MaxLength = 32767;
             mobileNumber.Multiline = false;
             mobileNumber.Name = "mobileNumber";
@@ -92,39 +93,20 @@
             mobileNumber.TextAlignment = HorizontalAlignment.Left;
             mobileNumber.UseSystemPasswordChar = false;
             // 
-            // chatButtonRight1
-            // 
-            chatButtonRight1.BackColor = Color.Transparent;
-            chatButtonRight1.Font = new Font("Segoe UI", 12F);
-            chatButtonRight1.ForeColor = Color.FromArgb(234, 234, 234);
-            chatButtonRight1.Image = null;
-            chatButtonRight1.ImageAlign = ContentAlignment.MiddleLeft;
-            chatButtonRight1.InactiveColorA = Color.FromArgb(0, 176, 231);
-            chatButtonRight1.InactiveColorB = Color.FromArgb(0, 152, 224);
-            chatButtonRight1.Location = new Point(45, 354);
-            chatButtonRight1.Name = "chatButtonRight1";
-            chatButtonRight1.PressedColorA = Color.FromArgb(0, 118, 176);
-            chatButtonRight1.PressedColorB = Color.FromArgb(0, 149, 222);
-            chatButtonRight1.PressedContourColorA = Color.FromArgb(0, 118, 176);
-            chatButtonRight1.PressedContourColorB = Color.FromArgb(0, 118, 176);
-            chatButtonRight1.Size = new Size(293, 40);
-            chatButtonRight1.TabIndex = 8;
-            chatButtonRight1.Text = "Add Member";
-            chatButtonRight1.TextAlignment = StringAlignment.Center;
-            chatButtonRight1.Click += chatButtonRight1_Click;
-            // 
             // poisonDataGridView1
             // 
+            poisonDataGridView1.AllowUserToResizeColumns = false;
             poisonDataGridView1.AllowUserToResizeRows = false;
             poisonDataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
             poisonDataGridView1.BorderStyle = BorderStyle.None;
             poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(12, 72, 128);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.Padding = new Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(12, 72, 128);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -133,75 +115,105 @@
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(57, 142, 222);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             poisonDataGridView1.EnableHeadersVisualStyles = false;
             poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.Location = new Point(369, 127);
+            poisonDataGridView1.Location = new Point(363, 108);
             poisonDataGridView1.Name = "poisonDataGridView1";
             poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(12, 72, 128);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(12, 72, 128);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView1.Size = new Size(455, 396);
+            poisonDataGridView1.Size = new Size(455, 390);
             poisonDataGridView1.TabIndex = 9;
             // 
-            // bigTextBox1
+            // hopeButton1
             // 
-            bigTextBox1.BackColor = Color.Transparent;
-            bigTextBox1.Font = new Font("Tahoma", 11F);
-            bigTextBox1.ForeColor = Color.DimGray;
-            bigTextBox1.Image = null;
-            bigTextBox1.Location = new Point(45, 53);
-            bigTextBox1.MaxLength = 32767;
-            bigTextBox1.Multiline = false;
-            bigTextBox1.Name = "bigTextBox1";
-            bigTextBox1.ReadOnly = false;
-            bigTextBox1.Size = new Size(361, 41);
-            bigTextBox1.TabIndex = 10;
-            bigTextBox1.Text = "bigTextBox1";
-            bigTextBox1.TextAlignment = HorizontalAlignment.Left;
-            bigTextBox1.UseSystemPasswordChar = false;
+            hopeButton1.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton1.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton1.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton1.Font = new Font("Segoe UI", 12F);
+            hopeButton1.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton1.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton1.Location = new Point(39, 399);
+            hopeButton1.Name = "hopeButton1";
+            hopeButton1.PrimaryColor = Color.FromArgb(2, 39, 74);
+            hopeButton1.Size = new Size(293, 40);
+            hopeButton1.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton1.TabIndex = 12;
+            hopeButton1.Text = "Update User";
+            hopeButton1.TextColor = Color.White;
+            hopeButton1.WarningColor = Color.FromArgb(230, 162, 60);
             // 
-            // button1
+            // hopeButton2
             // 
-            button1.BackColor = Color.Transparent;
-            button1.BorderColor = Color.FromArgb(32, 34, 37);
-            button1.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-            button1.EnteredColor = Color.FromArgb(32, 34, 37);
-            button1.Font = new Font("Microsoft Sans Serif", 12F);
-            button1.Image = null;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.InactiveColor = Color.FromArgb(32, 34, 37);
-            button1.Location = new Point(412, 53);
-            button1.Name = "button1";
-            button1.PressedBorderColor = Color.FromArgb(165, 37, 37);
-            button1.PressedColor = Color.FromArgb(165, 37, 37);
-            button1.Size = new Size(120, 40);
-            button1.TabIndex = 11;
-            button1.Text = "Search";
-            button1.TextAlignment = StringAlignment.Center;
-            button1.Click += button1_Click;
+            hopeButton2.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton2.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton2.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton2.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton2.Font = new Font("Segoe UI", 12F);
+            hopeButton2.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton2.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton2.Location = new Point(39, 455);
+            hopeButton2.Name = "hopeButton2";
+            hopeButton2.PrimaryColor = Color.FromArgb(192, 0, 0);
+            hopeButton2.Size = new Size(293, 40);
+            hopeButton2.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton2.TabIndex = 13;
+            hopeButton2.Text = "Delete User";
+            hopeButton2.TextColor = Color.White;
+            hopeButton2.WarningColor = Color.FromArgb(230, 162, 60);
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(2, 39, 74);
+            panel1.Location = new Point(-4, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(891, 29);
+            panel1.TabIndex = 14;
+            // 
+            // hopeButton3
+            // 
+            hopeButton3.BorderColor = Color.FromArgb(220, 223, 230);
+            hopeButton3.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            hopeButton3.DangerColor = Color.FromArgb(245, 108, 108);
+            hopeButton3.DefaultColor = Color.FromArgb(255, 255, 255);
+            hopeButton3.Font = new Font("Segoe UI", 12F);
+            hopeButton3.HoverTextColor = Color.FromArgb(48, 49, 51);
+            hopeButton3.InfoColor = Color.FromArgb(144, 147, 153);
+            hopeButton3.Location = new Point(39, 342);
+            hopeButton3.Name = "hopeButton3";
+            hopeButton3.PrimaryColor = Color.FromArgb(2, 39, 74);
+            hopeButton3.Size = new Size(293, 40);
+            hopeButton3.SuccessColor = Color.FromArgb(103, 194, 58);
+            hopeButton3.TabIndex = 15;
+            hopeButton3.Text = "Add User";
+            hopeButton3.TextColor = Color.White;
+            hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
             // 
             // MemberView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(884, 561);
-            Controls.Add(button1);
-            Controls.Add(bigTextBox1);
+            Controls.Add(hopeButton3);
+            Controls.Add(panel1);
+            Controls.Add(hopeButton2);
+            Controls.Add(hopeButton1);
             Controls.Add(poisonDataGridView1);
-            Controls.Add(chatButtonRight1);
             Controls.Add(mobileNumber);
             Controls.Add(email);
             Controls.Add(name);
@@ -216,9 +228,10 @@
         private ReaLTaiizor.Controls.BigTextBox name;
         private ReaLTaiizor.Controls.BigTextBox email;
         private ReaLTaiizor.Controls.BigTextBox mobileNumber;
-        private ReaLTaiizor.Controls.ChatButtonRight chatButtonRight1;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
-        private ReaLTaiizor.Controls.BigTextBox bigTextBox1;
-        private ReaLTaiizor.Controls.Button button1;
+        private ReaLTaiizor.Controls.HopeButton hopeButton1;
+        private ReaLTaiizor.Controls.HopeButton hopeButton2;
+        private Panel panel1;
+        private ReaLTaiizor.Controls.HopeButton hopeButton3;
     }
 }

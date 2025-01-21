@@ -139,6 +139,7 @@
             cyberButton1.ColorLighting = Color.FromArgb(29, 200, 238);
             cyberButton1.ColorPen_1 = Color.FromArgb(37, 52, 68);
             cyberButton1.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            cyberButton1.Cursor = Cursors.Hand;
             cyberButton1.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             cyberButton1.Effect_1 = true;
             cyberButton1.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
