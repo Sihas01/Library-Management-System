@@ -58,7 +58,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(900, 35);
+            panel1.Size = new Size(1058, 35);
             panel1.TabIndex = 0;
             // 
             // nightControlBox1
@@ -75,7 +75,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(761, 0);
+            nightControlBox1.Location = new Point(919, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -96,7 +96,7 @@
             flowLayoutPanel1.Location = new Point(0, 35);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(0, 30, 0, 0);
-            flowLayoutPanel1.Size = new Size(221, 546);
+            flowLayoutPanel1.Size = new Size(221, 591);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -170,7 +170,7 @@
             button3.Padding = new Padding(25, 15, 0, 15);
             button3.Size = new Size(241, 59);
             button3.TabIndex = 2;
-            button3.Text = "         Add Member";
+            button3.Text = "         Manage Member";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
@@ -227,7 +227,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 581);
+            ClientSize = new Size(1058, 626);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
