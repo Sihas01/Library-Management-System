@@ -26,8 +26,8 @@ namespace Library_Management_System.View
 
         public string Name
         {
-            get { return name.Text; }
-            set { name.Text = value; }
+            get { return nameTextBox.Text; }
+            set { nameTextBox.Text = value; }
         }
 
         public string Email
@@ -46,13 +46,6 @@ namespace Library_Management_System.View
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
-        }
-
-
-        private void chatButtonRight1_Click(object sender, EventArgs e)
-        {
-            _memberController.CreateUser();
-            _memberController.GetUser();
         }
 
         private void MemberView_Load(object sender, EventArgs e)
@@ -86,7 +79,7 @@ namespace Library_Management_System.View
             {
                 DataGridViewRow row = poisonDataGridView1.Rows[e.RowIndex];
 
-                name.Text = row.Cells["Name"].Value.ToString();
+                nameTextBox.Text = row.Cells["Name"].Value.ToString();
                 email.Text = row.Cells["Email"].Value.ToString();
                 mobileNumber.Text = row.Cells["PhoneNumber"].Value.ToString();
             }
@@ -95,6 +88,12 @@ namespace Library_Management_System.View
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void hopeButton3_Click(object sender, EventArgs e)
+        {
+            _memberController.CreateUser();
+            _memberController.GetUser();
         }
     }
 }

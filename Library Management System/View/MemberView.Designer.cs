@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            name = new ReaLTaiizor.Controls.BigTextBox();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            nameTextBox = new ReaLTaiizor.Controls.BigTextBox();
             email = new ReaLTaiizor.Controls.BigTextBox();
             mobileNumber = new ReaLTaiizor.Controls.BigTextBox();
             poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
@@ -42,22 +42,22 @@
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // name
+            // nameTextBox
             // 
-            name.BackColor = Color.White;
-            name.Font = new Font("Tahoma", 11F);
-            name.ForeColor = Color.DimGray;
-            name.Image = null;
-            name.Location = new Point(39, 132);
-            name.MaxLength = 32767;
-            name.Multiline = false;
-            name.Name = "name";
-            name.ReadOnly = false;
-            name.Size = new Size(293, 41);
-            name.TabIndex = 5;
-            name.Text = "Name";
-            name.TextAlignment = HorizontalAlignment.Left;
-            name.UseSystemPasswordChar = false;
+            nameTextBox.BackColor = Color.White;
+            nameTextBox.Font = new Font("Tahoma", 11F);
+            nameTextBox.ForeColor = Color.DimGray;
+            nameTextBox.Image = null;
+            nameTextBox.Location = new Point(39, 132);
+            nameTextBox.MaxLength = 32767;
+            nameTextBox.Multiline = false;
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.ReadOnly = false;
+            nameTextBox.Size = new Size(293, 41);
+            nameTextBox.TabIndex = 5;
+            nameTextBox.Text = "Name";
+            nameTextBox.TextAlignment = HorizontalAlignment.Left;
+            nameTextBox.UseSystemPasswordChar = false;
             // 
             // email
             // 
@@ -101,38 +101,38 @@
             poisonDataGridView1.BorderStyle = BorderStyle.None;
             poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(12, 72, 128);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.Padding = new Padding(10);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(12, 72, 128);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(12, 72, 128);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.Padding = new Padding(10);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(12, 72, 128);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(57, 142, 222);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(57, 142, 222);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             poisonDataGridView1.EnableHeadersVisualStyles = false;
             poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
             poisonDataGridView1.Location = new Point(363, 108);
             poisonDataGridView1.Name = "poisonDataGridView1";
             poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(12, 72, 128);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(12, 72, 128);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(12, 72, 128);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(12, 72, 128);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             poisonDataGridView1.Size = new Size(455, 390);
@@ -202,6 +202,7 @@
             hopeButton3.Text = "Add User";
             hopeButton3.TextColor = Color.White;
             hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton3.Click += hopeButton3_Click;
             // 
             // MemberView
             // 
@@ -216,7 +217,7 @@
             Controls.Add(poisonDataGridView1);
             Controls.Add(mobileNumber);
             Controls.Add(email);
-            Controls.Add(name);
+            Controls.Add(nameTextBox);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MemberView";
             Text = "MemberView";
@@ -225,7 +226,7 @@
         }
 
         #endregion
-        private ReaLTaiizor.Controls.BigTextBox name;
+        private ReaLTaiizor.Controls.BigTextBox nameTextBox;
         private ReaLTaiizor.Controls.BigTextBox email;
         private ReaLTaiizor.Controls.BigTextBox mobileNumber;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
