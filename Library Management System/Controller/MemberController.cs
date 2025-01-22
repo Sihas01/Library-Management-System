@@ -14,7 +14,6 @@ namespace Library_Management_System.Controller
     {
         private readonly IMemberView _memberView;
         private readonly MemberModel _memberModel;
-        private readonly ViewMember viewMember;
         private readonly EmailController emailController;
 
         public MemberController(IMemberView memberView)
@@ -22,12 +21,6 @@ namespace Library_Management_System.Controller
             _memberView = memberView;
             _memberModel = new MemberModel();
             emailController = new EmailController();
-        }
-
-        public MemberController(ViewMember viewMember)
-        {
-            this.viewMember = viewMember;
-            _memberModel = new MemberModel();
         }
 
         public void CreateUser()
@@ -67,23 +60,36 @@ namespace Library_Management_System.Controller
             }
         }
 
-        public List<Member> GetUser()
+        public void GetUser()
         {
             try
             {
 
                 var members = _memberModel.GetMembers();
 
+                var filteredMembers = GetFilteredMembers(members);
+                _memberView.DisplayMembers(filteredMembers);
 
-                viewMember.DisplayMembers(members);
-
-                return members;
             }
             catch (Exception e)
             {
-                viewMember.ShowMessage($"Error fetching members: {e.Message}");
-                return new List<Member>();
+                _memberView.ShowMessage($"Error fetching members: {e.Message}");
             }
         }
+
+        public List<Member> GetFilteredMembers(List<Member> members)
+        {
+            var filteredMembers = members.Select(m => new Member
+            {
+                Id = m.Id,
+                Name = m.Name,
+                Email = m.Email,
+                PhoneNumber = m.PhoneNumber,
+            }).ToList();
+
+            return filteredMembers;
+        }
+
+
     }
 }

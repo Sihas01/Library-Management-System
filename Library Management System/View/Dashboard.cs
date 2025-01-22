@@ -13,12 +13,10 @@ namespace Library_Management_System.View
     public partial class Dashboard : Form
     {
         DashboardView dashboardview;
-        ViewMember viewMember;
         MemberView memberView;
         public Dashboard()
         {
             InitializeComponent();
-            viewMember = null;
             dashboardview = null;
             memberView = null;
         }
@@ -47,18 +45,7 @@ namespace Library_Management_System.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (viewMember == null || viewMember.IsDisposed)
-            {
-                viewMember = new ViewMember();
-                viewMember.FormClosed += ViewMember_FormClosed;
-                viewMember.MdiParent = this;
-                viewMember.Dock = DockStyle.Fill;
-                viewMember.Show();
-            }
-            else
-            {
-                viewMember.Activate();
-            }
+            
 
 
 
@@ -66,8 +53,7 @@ namespace Library_Management_System.View
 
         private void ViewMember_FormClosed(object sender, FormClosedEventArgs e)
         {
-            viewMember.Dispose();
-            viewMember = null;
+           
         }
 
 

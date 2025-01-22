@@ -54,10 +54,10 @@ namespace Library_Management_System.Controller
                     }
                     else
                     {
-                        login.ShowMessage("menu");
                         Dashboard dashboard = new Dashboard();
                         dashboard.Show();
-                        
+
+
                     }
                 }
                 else
@@ -83,6 +83,7 @@ namespace Library_Management_System.Controller
                 if (member1 != null)
                 {
                     string password = msg.Password;
+                    UserValidation.ValidatePassword(password);
                     
                     bool isUpdated =  member.UpdatePassword(member1,password);
                     if (isUpdated) {

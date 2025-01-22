@@ -58,7 +58,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(900, 35);
+            panel1.Size = new Size(1058, 35);
             panel1.TabIndex = 0;
             // 
             // nightControlBox1
@@ -75,7 +75,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(761, 0);
+            nightControlBox1.Location = new Point(919, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -86,7 +86,7 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(64, 64, 64);
+            flowLayoutPanel1.BackColor = Color.FromArgb(2, 39, 74);
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(panel4);
@@ -96,7 +96,7 @@
             flowLayoutPanel1.Location = new Point(0, 35);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(0, 30, 0, 0);
-            flowLayoutPanel1.Size = new Size(221, 546);
+            flowLayoutPanel1.Size = new Size(221, 591);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -109,8 +109,9 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(64, 64, 64);
-            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.BackColor = Color.FromArgb(2, 39, 74);
+            button1.Cursor = Cursors.Hand;
+            button1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
@@ -134,9 +135,9 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.FromArgb(64, 64, 64);
+            button2.BackColor = Color.FromArgb(2, 39, 74);
             button2.Cursor = Cursors.Hand;
-            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
@@ -145,7 +146,7 @@
             button2.Padding = new Padding(25, 15, 0, 15);
             button2.Size = new Size(241, 59);
             button2.TabIndex = 2;
-            button2.Text = "         View Members";
+            button2.Text = "         Manage Book";
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -160,8 +161,9 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.FromArgb(64, 64, 64);
-            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.BackColor = Color.FromArgb(2, 39, 74);
+            button3.Cursor = Cursors.Hand;
+            button3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
@@ -170,7 +172,7 @@
             button3.Padding = new Padding(25, 15, 0, 15);
             button3.Size = new Size(241, 59);
             button3.TabIndex = 2;
-            button3.Text = "         Add Member";
+            button3.Text = "         Manage Member";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
@@ -185,8 +187,9 @@
             // 
             // button5
             // 
-            button5.BackColor = Color.FromArgb(64, 64, 64);
-            button5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button5.BackColor = Color.FromArgb(2, 39, 74);
+            button5.Cursor = Cursors.Hand;
+            button5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
@@ -195,7 +198,7 @@
             button5.Padding = new Padding(25, 15, 0, 15);
             button5.Size = new Size(241, 59);
             button5.TabIndex = 2;
-            button5.Text = "         Update Members";
+            button5.Text = "         Manage Fine";
             button5.TextAlign = ContentAlignment.MiddleLeft;
             button5.UseVisualStyleBackColor = false;
             // 
@@ -209,7 +212,7 @@
             // 
             // button6
             // 
-            button6.BackColor = Color.FromArgb(64, 64, 64);
+            button6.BackColor = Color.FromArgb(2, 39, 74);
             button6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button6.ForeColor = Color.White;
             button6.Image = (Image)resources.GetObject("button6.Image");
@@ -227,7 +230,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 581);
+            ClientSize = new Size(1058, 626);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
