@@ -24,7 +24,7 @@ namespace Library_Management_System.View
             this.poisonDataGridView1.CellClick += poisonDataGridView1_CellClick;
         }
 
-        public string Name
+        public new string Name
         {
             get { return nameTextBox.Text; }
             set { nameTextBox.Text = value; }

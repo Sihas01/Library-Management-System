@@ -11,22 +11,16 @@ namespace Library_Management_System.Model
 {
     public class Member : Person
     {
-        private string _hashedPassword;
         private bool _hasChangedPassword;
         private string generatedPassword;
+        private double _finesDeu;
         public Member() { }
         public Member(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
         {
             generatedPassword = PasswordGenerator.GenerateNewPassword();
             _hashedPassword = Hashedpassword(generatedPassword);
             _hasChangedPassword = false;
-        }
-
-        public string Password
-        {
-            get { return _hashedPassword; }
-            set { _hashedPassword = value; }
-
+            _finesDeu = 0;
         }
 
         public bool HasChangedPassword
@@ -36,10 +30,10 @@ namespace Library_Management_System.Model
 
         }
 
-        private string Hashedpassword(string password)
+        public double FinesDeu
         {
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-            return hashedPassword;
+            get { return _finesDeu; }
+            set { _finesDeu = value; }
         }
 
         public void UpdatePassword(string password)

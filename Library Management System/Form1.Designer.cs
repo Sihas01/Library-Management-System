@@ -36,6 +36,7 @@
             name = new ReaLTaiizor.Controls.BigTextBox();
             password = new ReaLTaiizor.Controls.BigTextBox();
             cyberButton1 = new ReaLTaiizor.Controls.CyberButton();
+            linkLabel1 = new LinkLabel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -84,9 +85,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-3, -33);
+            pictureBox1.Location = new Point(-34, -33);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(441, 583);
+            pictureBox1.Size = new Size(472, 583);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -167,12 +168,26 @@
             cyberButton1.Timer_RGB = 300;
             cyberButton1.Click += cyberButton1_Click;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.ActiveLinkColor = Color.FromArgb(64, 64, 64);
+            linkLabel1.AutoSize = true;
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(638, 450);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(76, 15);
+            linkLabel1.TabIndex = 7;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Admin Login";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(900, 581);
+            Controls.Add(linkLabel1);
             Controls.Add(cyberButton1);
             Controls.Add(password);
             Controls.Add(name);
@@ -186,6 +201,7 @@
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -197,5 +213,6 @@
         private ReaLTaiizor.Controls.BigTextBox password;
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.CyberButton cyberButton1;
+        private LinkLabel linkLabel1;
     }
 }

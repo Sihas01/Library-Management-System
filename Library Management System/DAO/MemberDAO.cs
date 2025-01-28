@@ -70,7 +70,7 @@ namespace Library_Management_System.DAO
         {
             try
             {
-                var members = _database.Select("members", "*", $"email = '{email}'");
+                var members = _database.Select("member", "*", $"email = '{email}'");
                 if (members != null && members.Count > 0)
                 {
                     var memberData = members[0];

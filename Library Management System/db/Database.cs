@@ -10,7 +10,7 @@ namespace Library_Management_System.db
     internal class Database
     {
         private MySqlConnection _connection;
-        private string connectionString = "Server=localhost;Database=test;User ID=root;Password=mysql123";
+        private string connectionString = "Server=localhost;Database=library_management_system;User ID=root;Password=mysql123";
 
         public Database()
         {
