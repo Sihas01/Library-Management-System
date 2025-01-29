@@ -95,5 +95,11 @@ namespace Library_Management_System.View
             _memberController.CreateUser();
             _memberController.GetUser();
         }
+
+        private void hopeButton1_Click(object sender, EventArgs e)
+        {
+            _memberController.UpdateMember();
+            _memberController.GetUser();
+        }
     }
 }

@@ -21,17 +21,19 @@ namespace Library_Management_System.DAO
         {
             try
             {
-                var columns = new List<string> { "name", "email", "phonenumber", "password", "hasChangedPassword" };
+                var columns = new List<string> { "name", "email", "phonenumber", "password", "hasChangedPassword" ,"finesDue","role"};
                 var values = new List<object>
                 {
                     member.Name,
                     member.Email,
                     member.PhoneNumber,
                     member.Password,
-                    member.HasChangedPassword ? 1 : 0
+                    member.HasChangedPassword ? 1 : 0,
+                    member.FinesDeu,
+                    member.Role
                 };
 
-                _database.Insert("members", columns, values);
+                _database.Insert("member", columns, values);
                 return true;
             }
             catch (Exception ex)
@@ -45,7 +47,7 @@ namespace Library_Management_System.DAO
             try
             {
                 var members = new List<Member>();
-                var result = _database.Select("members");
+                var result = _database.Select("member");
 
                 foreach (var row in result)
                 {
@@ -103,13 +105,32 @@ namespace Library_Management_System.DAO
                     $"hasChangedPassword = 1"
                 };
                 string condition = $"email = '{member.Email}'";
-                _database.Update("members", setClauses, condition);
+                _database.Update("member", setClauses, condition);
 
                 return true;
             }
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public void UpdateMemeber(Member member)
+        {
+            try
+            {
+                List<string> columns = new List<string> { "name", "phonenumber" };
+                List<string> setClauses = new List<string>
+                {
+                   $"name = '{member.Name}'",
+                   $"phonenumber = '{member.PhoneNumber}'",
+                };
+                string condition = $"email = '{member.Email}'";
+                _database.Update("member", setClauses, condition);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error updating member by email.", ex);
             }
         }
     }

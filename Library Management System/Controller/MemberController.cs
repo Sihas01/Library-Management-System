@@ -47,7 +47,7 @@ namespace Library_Management_System.Controller
                 }
                 else
                 {
-                    _memberView.ShowMessage("Faild to create user");
+                    _memberView.ShowMessage("User Exist");
                 }
             }
             catch (ArgumentException ex)
@@ -88,6 +88,49 @@ namespace Library_Management_System.Controller
             }).ToList();
 
             return filteredMembers;
+        }
+
+        public void UpdateMember()
+        {
+            try
+            {
+                string name = _memberView.Name;
+                string email = _memberView.Email;
+                string phoneNumber = _memberView.PhoneNumber;
+                var members = _memberModel.GetMemberByEmail(email);
+                if (members != null) {
+                    bool isUpdated = false;
+                    if(name != members.Name)
+                    {
+                        members.Name = name;
+                        isUpdated = true;
+                    }
+
+                    if (phoneNumber != members.PhoneNumber)
+                    {
+                        members.PhoneNumber = phoneNumber;
+                        isUpdated = true;
+                    }
+
+                    if (isUpdated)
+                    {
+                        _memberModel.UpdateMember(members);
+                        _memberView.ShowMessage("Member updated successfully");
+                    }
+                    else
+                    {
+                        _memberView.ShowMessage("No changes detected.");
+                    }
+                }
+                else
+                {
+                    _memberView.ShowMessage("Cannot change email address");
+                }
+
+            }
+            catch (Exception e) { 
+            _memberView.ShowMessage($"{e.Message}");
+            }
         }
 
 
