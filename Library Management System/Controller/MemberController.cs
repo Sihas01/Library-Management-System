@@ -28,7 +28,7 @@ namespace Library_Management_System.Controller
             try
             {
                 string name = _memberView.Name;
-                string email = _memberView.Email;
+                string email = _memberView.Email.ToLower();
                 string phoneNumber = _memberView.PhoneNumber;
                
 
@@ -67,8 +67,7 @@ namespace Library_Management_System.Controller
 
                 var members = _memberModel.GetMembers();
 
-                var filteredMembers = GetFilteredMembers(members);
-                _memberView.DisplayMembers(filteredMembers);
+                _memberView.DisplayMembers(members);
 
             }
             catch (Exception e)
@@ -77,25 +76,12 @@ namespace Library_Management_System.Controller
             }
         }
 
-        public List<Member> GetFilteredMembers(List<Member> members)
-        {
-            var filteredMembers = members.Select(m => new Member
-            {
-                Id = m.Id,
-                Name = m.Name,
-                Email = m.Email,
-                PhoneNumber = m.PhoneNumber,
-            }).ToList();
-
-            return filteredMembers;
-        }
-
         public void UpdateMember()
         {
             try
             {
                 string name = _memberView.Name;
-                string email = _memberView.Email;
+                string email = _memberView.Email.ToLower();
                 string phoneNumber = _memberView.PhoneNumber;
                 var members = _memberModel.GetMemberByEmail(email);
                 if (members != null) {
@@ -133,6 +119,26 @@ namespace Library_Management_System.Controller
             }
         }
 
+        public void DeleteMember()
+        {
+            try
+            {
+                string email = _memberView.Email.ToLower();
+                if (email == null || email=="Email") {
+                    _memberView.ShowMessage("Select a memeber first");
+                }
+                var members = _memberModel.GetMemberByEmail(email);
+                if (members != null)
+                {
+                    _memberModel.DeleteMember(email);
+                    _memberView.ShowMessage("Member deleted successfully");
+                }
+            }
+            catch (Exception e)
+            {
+                _memberView.ShowMessage($"{e.Message}");
+            }
+        }
 
     }
 }

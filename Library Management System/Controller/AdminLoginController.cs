@@ -23,7 +23,7 @@ namespace Library_Management_System.Controller
         {
             try
             {
-                string name = adminLogin.Name;
+                string name = adminLogin.Name.ToLower();
                 string password = adminLogin.Password;
                 admin = adminModel.GetAdmin(name,password);
                 if (admin != null) {

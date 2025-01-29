@@ -14,6 +14,7 @@ namespace Library_Management_System
             InitializeComponent();
             accountController = new AccountController(this);
             linkLabel1.LinkClicked += new LinkLabelLinkClickedEventHandler(linkLabel1_LinkClicked);
+            name.Text = "Email Address";
         }
 
         public new string Name

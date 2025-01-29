@@ -74,5 +74,9 @@ namespace Library_Management_System.Model
         {
             _memberDAO.UpdateMemeber(member);
         }
+
+        public void DeleteMember(string email) {
+            _memberDAO.DeleteMember(email);
+        }
     }
 }

@@ -39,6 +39,7 @@
             hopeButton2 = new ReaLTaiizor.Controls.HopeButton();
             panel1 = new Panel();
             hopeButton3 = new ReaLTaiizor.Controls.HopeButton();
+            search = new ReaLTaiizor.Controls.BigTextBox();
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             nameTextBox.ReadOnly = false;
             nameTextBox.Size = new Size(293, 41);
             nameTextBox.TabIndex = 5;
-            nameTextBox.Text = "Name";
+            nameTextBox.Text = "Member Name";
             nameTextBox.TextAlignment = HorizontalAlignment.Left;
             nameTextBox.UseSystemPasswordChar = false;
             // 
@@ -95,8 +96,11 @@
             // 
             // poisonDataGridView1
             // 
+            poisonDataGridView1.AllowUserToAddRows = false;
+            poisonDataGridView1.AllowUserToDeleteRows = false;
             poisonDataGridView1.AllowUserToResizeColumns = false;
             poisonDataGridView1.AllowUserToResizeRows = false;
+            poisonDataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             poisonDataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
             poisonDataGridView1.BorderStyle = BorderStyle.None;
             poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
@@ -176,6 +180,7 @@
             hopeButton2.Text = "Delete User";
             hopeButton2.TextColor = Color.White;
             hopeButton2.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton2.Click += hopeButton2_Click;
             // 
             // panel1
             // 
@@ -205,12 +210,31 @@
             hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
             hopeButton3.Click += hopeButton3_Click;
             // 
+            // search
+            // 
+            search.BackColor = Color.Transparent;
+            search.Font = new Font("Tahoma", 11F);
+            search.ForeColor = Color.DimGray;
+            search.Image = null;
+            search.Location = new Point(39, 51);
+            search.MaxLength = 32767;
+            search.Multiline = false;
+            search.Name = "search";
+            search.ReadOnly = false;
+            search.Size = new Size(779, 41);
+            search.TabIndex = 16;
+            search.Text = "Search";
+            search.TextAlignment = HorizontalAlignment.Left;
+            search.UseSystemPasswordChar = false;
+            search.TextChanged += bigTextBox1_TextChanged;
+            // 
             // MemberView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(884, 561);
+            Controls.Add(search);
             Controls.Add(hopeButton3);
             Controls.Add(panel1);
             Controls.Add(hopeButton2);
@@ -235,5 +259,6 @@
         private ReaLTaiizor.Controls.HopeButton hopeButton2;
         private Panel panel1;
         private ReaLTaiizor.Controls.HopeButton hopeButton3;
+        private ReaLTaiizor.Controls.BigTextBox search;
     }
 }

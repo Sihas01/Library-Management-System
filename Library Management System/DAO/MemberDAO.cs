@@ -133,5 +133,11 @@ namespace Library_Management_System.DAO
                 throw new ApplicationException("Error updating member by email.", ex);
             }
         }
+
+        public void DeleteMember(string email)
+        {
+            string condition = $"email = '{email}'";
+            _database.Delete("member", condition);
+        }
     }
 }

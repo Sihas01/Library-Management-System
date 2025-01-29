@@ -16,12 +16,15 @@ namespace Library_Management_System.View
     public partial class MemberView : Form, IMemberView
     {
         private MemberController _memberController;
+        private BindingSource _bindingSource;
         public MemberView()
         {
             InitializeComponent();
             _memberController = new MemberController(this);
             this.Load += MemberView_Load;
             this.poisonDataGridView1.CellClick += poisonDataGridView1_CellClick;
+            _bindingSource = new BindingSource();
+            nameTextBox.Text = "Name";
         }
 
         public new string Name
@@ -56,21 +59,30 @@ namespace Library_Management_System.View
 
         }
 
-        public void DisplayMembers(List<Member> filteredMembers)
+        public DataTable ConvertToDataTable(List<Member> members)
         {
+            DataTable dt = new DataTable();
 
+            // Add columns to the DataTable (based on Member properties)
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("FinesDeu",typeof(double));
 
-            poisonDataGridView1.DataSource = null;
-            poisonDataGridView1.DataSource = filteredMembers;
-            foreach (DataGridViewColumn column in poisonDataGridView1.Columns)
+            // Add rows from the Member list
+            foreach (var member in members)
             {
-                if (column.HeaderText == "Password" || column.Name == "Password" ||
-                    column.HeaderText == "GeneratedPassword" || column.Name == "GeneratedPassword" ||
-                    column.HeaderText == "HasChangedPassword" || column.Name == "HasChangedPassword")
-                {
-                    column.Visible = false;
-                }
+                dt.Rows.Add(member.Name, member.Email, member.PhoneNumber,member.FinesDeu);
             }
+
+            return dt;
+        }
+
+        public void DisplayMembers(List<Member> members)
+        {
+            DataTable dt = ConvertToDataTable(members);
+            _bindingSource.DataSource = dt;
+            poisonDataGridView1.DataSource = _bindingSource;
         }
 
         private void poisonDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -84,12 +96,6 @@ namespace Library_Management_System.View
                 mobileNumber.Text = row.Cells["PhoneNumber"].Value.ToString();
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void hopeButton3_Click(object sender, EventArgs e)
         {
             _memberController.CreateUser();
@@ -100,6 +106,19 @@ namespace Library_Management_System.View
         {
             _memberController.UpdateMember();
             _memberController.GetUser();
+        }
+
+        private void hopeButton2_Click(object sender, EventArgs e)
+        {
+            _memberController.DeleteMember();
+            _memberController.GetUser();
+        }
+
+        private void bigTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = search.Text.Trim();
+            string filterExpression = string.Format("Name LIKE '%{0}%'",searchQuery);
+            _bindingSource.Filter = filterExpression;
         }
     }
 }

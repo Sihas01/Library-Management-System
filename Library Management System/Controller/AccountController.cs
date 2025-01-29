@@ -33,7 +33,7 @@ namespace Library_Management_System.Controller
         {
             try
             {
-                string name = login.Name;
+                string name = login.Name.ToLower();
                 string password = login.Password;
 
                 //UserValidation.ValidateName(name);

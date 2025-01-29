@@ -54,7 +54,7 @@ namespace Library_Management_System.db
 
         public void Delete(string table, string condition)
         {
-            string query = $"DELETE FROM {table} WHERE condition={condition}";
+            string query = $"DELETE FROM {table} WHERE {condition}";
             ExecuteQuery(query);
         }
 
