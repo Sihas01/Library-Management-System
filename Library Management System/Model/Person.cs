@@ -12,13 +12,15 @@ namespace Library_Management_System.Model
         private string _name;
         private string _email;
         private string _phoneNumber;
-
+        private string _role;
+        protected string _hashedPassword;
         public Person() { }
         public Person( string name, string email, string phoneNumber)
         {
             _name = name;
             _email = email;
             _phoneNumber = phoneNumber;
+            _role = "member";
         }
 
         public int Id
@@ -44,6 +46,24 @@ namespace Library_Management_System.Model
         {
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
+        }
+
+        public string Password
+        {
+            get { return _hashedPassword; }
+            set { _hashedPassword = value; }
+        }
+
+        public string Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
+
+        protected string Hashedpassword(string password)
+        {
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            return hashedPassword;
         }
     }
 }

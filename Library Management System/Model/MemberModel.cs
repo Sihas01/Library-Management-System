@@ -23,10 +23,19 @@ namespace Library_Management_System.Model
 
         public (bool, string) CreateUser(string name, string email,string phoneNumber)
         {
-            var member = new Member(name, email, phoneNumber);
-            bool isSuccess = _memberDAO.CreateMember(member);
-            string generatedPassword = member.GeneratedPassword;
-            return (isSuccess,generatedPassword);
+            var exsistingMember = _memberDAO.GetMemberByEmail(email);
+            if (exsistingMember == null)
+            {
+                var member = new Member(name, email, phoneNumber);
+                bool isSuccess = _memberDAO.CreateMember(member);
+                string generatedPassword = member.GeneratedPassword;
+                return (isSuccess, generatedPassword);
+            }
+            else
+            {
+                return (false, null);
+            }
+            
         }
 
         public List<Member> GetMembers()
@@ -44,11 +53,30 @@ namespace Library_Management_System.Model
             return null;
         }
 
+        public Member GetMemberByEmail(string email)
+        {
+            var member = _memberDAO.GetMemberByEmail(email);
+            if(member != null)
+            {
+                return member;
+            }
+            return null;
+        }
+
         public bool UpdatePassword(Member member,string newPassword)
         {
 
             return _memberDAO.UpdateMemberPassword(member, newPassword);
 
+        }
+
+        public void UpdateMember(Member member)
+        {
+            _memberDAO.UpdateMemeber(member);
+        }
+
+        public void DeleteMember(string email) {
+            _memberDAO.DeleteMember(email);
         }
     }
 }

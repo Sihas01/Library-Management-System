@@ -10,7 +10,7 @@ namespace Library_Management_System.db
     internal class Database
     {
         private MySqlConnection _connection;
-        private string connectionString = "Server=localhost;Database=test;User ID=root;Password=mysql123";
+        private string connectionString = "Server=localhost;Database=library_management_system;User ID=root;Password=mysql123";
 
         public Database()
         {
@@ -54,7 +54,7 @@ namespace Library_Management_System.db
 
         public void Delete(string table, string condition)
         {
-            string query = $"DELETE FROM {table} WHERE condition={condition}";
+            string query = $"DELETE FROM {table} WHERE {condition}";
             ExecuteQuery(query);
         }
 
