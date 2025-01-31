@@ -55,7 +55,8 @@ namespace Library_Management_System.Controller
                     else
                     {
                         login.ShowMessage("memeber");
-
+                        MemberDashboard memberDashboard = new MemberDashboard();
+                        memberDashboard.Show();
 
                     }
                 }
