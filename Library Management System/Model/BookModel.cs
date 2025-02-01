@@ -49,5 +49,10 @@ namespace Library_Management_System.Model
         {
             _bookDao.DeleteBook(isbn);
         }
+
+        public void UpdateBookAsBorrowed(Book book)
+        {
+            _bookDao.UpdateAsBorrowed(book);
+        }
     }
 }

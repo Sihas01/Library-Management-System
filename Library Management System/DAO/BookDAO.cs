@@ -50,7 +50,7 @@ namespace Library_Management_System.DAO
                 if (books != null && books.Count > 0)
                 {
                     var bookData = books[0];
-                    return new Book
+                    var book = new Book
                     {
                         Title = bookData["title"],
                         Author = bookData["author"],
@@ -58,6 +58,8 @@ namespace Library_Management_System.DAO
                         Genre = bookData["genre"],
                         IsAvailable = bookData["isAvailable"] == "1"
                     };
+                    book.Id = Convert.ToInt32(bookData["id"]);
+                    return book;
                 }
 
                 return null;
@@ -129,5 +131,23 @@ namespace Library_Management_System.DAO
             _database.Delete("book", condition);
         }
 
+
+        public bool UpdateAsBorrowed(Book book)
+        {
+            try
+            {
+                List<string> setClauses = new List<string>
+                {
+                    $"IsAvailable = {book.IsAvailable}",
+                };
+                string condition = $"isbn = '{book.ISBN}'";
+                _database.Update("book", setClauses, condition);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }
