@@ -77,6 +77,15 @@ namespace Library_Management_System.View
             }
         }
 
+     
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = search.Text.Trim();
+            string filterExpression = string.Format("Title LIKE '%{0}%'", searchQuery);
+            _bindingSource.Filter = filterExpression;
+        }
+
         private void hopeButton3_Click(object sender, EventArgs e)
         {
             _borrowController.BorrowBook(selectedISBN);

@@ -12,7 +12,7 @@ using Microsoft.VisualBasic;
 
 namespace Library_Management_System.Model
 {
-    internal class BorrowingRecord
+    public class BorrowingRecord
     {
 
         public int Record_id {get;set;}
@@ -45,6 +45,7 @@ namespace Library_Management_System.Model
             {
                 Fine = null;
             }
+            
         }
     }
 }

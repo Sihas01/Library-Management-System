@@ -36,5 +36,9 @@ namespace Library_Management_System.Model
             }
             return "Error";
         }
+        public List<BorrowingRecord> Getborrowedbooks(int memberid) 
+        {
+            return _borrowingRecodDAO.Getborrowedbooks(memberid);
+        }
     }
 }
