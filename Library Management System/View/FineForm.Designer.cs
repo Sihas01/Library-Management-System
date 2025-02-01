@@ -55,6 +55,7 @@
             hopeButton3.Text = "Pay Fine";
             hopeButton3.TextColor = Color.White;
             hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton3.Click += hopeButton3_Click;
             // 
             // panel1
             // 
@@ -111,6 +112,7 @@
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             poisonDataGridView1.Size = new Size(779, 343);
             poisonDataGridView1.TabIndex = 26;
+            poisonDataGridView1.CellContentClick += poisonDataGridView1_CellContentClick;
             // 
             // FineForm
             // 
