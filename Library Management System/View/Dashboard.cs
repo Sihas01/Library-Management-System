@@ -14,11 +14,13 @@ namespace Library_Management_System.View
     {
         DashboardView dashboardview;
         MemberView memberView;
+        ManageBooksView manageBooksView;
         public Dashboard()
         {
             InitializeComponent();
             dashboardview = null;
             memberView = null;
+            manageBooksView = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,15 +47,25 @@ namespace Library_Management_System.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-
-
+            if (manageBooksView == null || manageBooksView.IsDisposed)
+            {
+                manageBooksView = new ManageBooksView();
+                manageBooksView.FormClosed += ManageBook_Closed;
+                manageBooksView.MdiParent = this;
+                manageBooksView.Dock = DockStyle.Fill;
+                manageBooksView.Show();
+            }
+            else
+            {
+                manageBooksView.Activate();
+            }
 
         }
 
-        private void ViewMember_FormClosed(object sender, FormClosedEventArgs e)
+        private void ManageBook_Closed(object sender, FormClosedEventArgs e)
         {
-           
+            manageBooksView.Dispose();
+            manageBooksView = null;
         }
 
 
