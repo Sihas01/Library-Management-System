@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Model
 {
-    internal class Fine
+    public class Fine
     {
         public int Fine_Id { get; set; }
         public int MemberId { get; set; }

@@ -39,7 +39,22 @@ namespace Library_Management_System.db
             }
 
             string columnsJoined = string.Join(",", columns);
-            string parameters = string.Join(",", values.ConvertAll(v => $"'{v}'"));
+            string parameters = string.Join(",", values.ConvertAll(v =>
+            {
+                if (v == DBNull.Value || v == null)
+                {
+                    return "NULL";
+                }
+                else if (v is string || v is DateTime)
+                {
+                    return $"'{v}'";
+                }
+                else
+                {
+                    return v.ToString();
+                }
+            }
+            ));
 
             string query = $"INSERT INTO {table} ({columnsJoined}) VALUES ({parameters})";
             ExecuteQuery(query);

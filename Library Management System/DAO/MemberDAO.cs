@@ -76,7 +76,7 @@ namespace Library_Management_System.DAO
                 if (members != null && members.Count > 0)
                 {
                     var memberData = members[0];
-                    return new Member
+                    var member =  new Member
                     {
                         Name = memberData["name"],
                         Email = memberData["email"],
@@ -84,6 +84,8 @@ namespace Library_Management_System.DAO
                         Password = memberData["password"],
                         HasChangedPassword = memberData["hasChangedPassword"] == "1"
                     };
+                    member.Id = Convert.ToInt32(memberData["id"]);
+                    return member;
                 }
 
                 return null;
