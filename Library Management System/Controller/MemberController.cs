@@ -137,8 +137,15 @@ namespace Library_Management_System.Controller
                 var members = _memberModel.GetMemberByEmail(email);
                 if (members != null)
                 {
-                    _memberModel.DeleteMember(email);
-                    _memberView.ShowMessage("Member deleted successfully");
+                    bool isSucces = _memberModel.DeleteMember(email);
+                    if (isSucces)
+                    {
+                        _memberView.ShowMessage("Member deleted successfully");
+                    }
+                    else
+                    {
+                        _memberView.ShowMessage("Cannot delete member until borrowed books are returned");
+                    }
                 }
             }
             catch (Exception e)

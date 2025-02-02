@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using BCrypt.Net;
 using Library_Management_System.DAO;
 using Library_Management_System.db;
+using Library_Management_System.View;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -15,10 +16,12 @@ namespace Library_Management_System.Model
     internal class MemberModel
     {
         private readonly MemberDAO _memberDAO;
+        private readonly BorrowingRecodModel _borrowingRecodModel;
 
         public MemberModel()
         {
             _memberDAO = new MemberDAO();
+            _borrowingRecodModel = new BorrowingRecodModel();
         }
 
         public (bool, string) CreateUser(string name, string email,string phoneNumber)
@@ -75,8 +78,19 @@ namespace Library_Management_System.Model
             _memberDAO.UpdateMemeber(member);
         }
 
-        public void DeleteMember(string email) {
-            _memberDAO.DeleteMember(email);
+        public bool DeleteMember(string email) {
+            Member member =  GetMemberByEmail(email);
+            if (member != null)
+            {
+                var result = _borrowingRecodModel.Getborrowedbooks(member.Id);
+                if (result == null || result.Count == 0)
+                {
+                    _memberDAO.DeleteMember(email);
+                    return true;
+                }
+                
+            }
+            return false;
         }
 
         public List<ActiveMember> GetMostActiveMembers()
