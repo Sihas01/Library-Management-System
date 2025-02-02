@@ -56,6 +56,7 @@
             hopeButton3.Text = "Reserve Book";
             hopeButton3.TextColor = Color.White;
             hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
+            hopeButton3.Click += hopeButton3_Click;
             // 
             // poisonDataGridView1
             // 
@@ -121,6 +122,7 @@
             search.Text = "Search";
             search.TextAlignment = HorizontalAlignment.Left;
             search.UseSystemPasswordChar = false;
+            search.TextChanged += search_TextChanged;
             // 
             // panel1
             // 
