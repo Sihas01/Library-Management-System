@@ -133,6 +133,40 @@ namespace Library_Management_System.DAO
             }
         }
 
+        public List<Book> GetBooksForReserve()
+        {
+            try
+            {
+                var books = new List<Book>();
+                string condition = $"isAvailable = 0";
+                var result = _database.Select("book", "*", condition);
+
+                foreach (var row in result)
+                {
+                    var book = new Book(row["title"], row["author"], row["genre"], row["isbn"])
+                    {
+                        IsAvailable = row["isAvailable"] == "1",
+                        Id = Convert.ToInt32(row["id"])
+                    };
+                    books.Add(book);
+                }
+
+                return books;
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                throw new ApplicationException("Missing expected column in row", knfEx);
+            }
+            catch (InvalidCastException castEx)
+            {
+                throw new ApplicationException("Invalid data format in row", castEx);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error processing book row", ex);
+            }
+        }
+
         public bool UpdateBook(Book book)
         {
             try

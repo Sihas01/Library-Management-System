@@ -17,6 +17,7 @@ namespace Library_Management_System.View
         ReserveBookForm reserveBookForm;
         FineForm fineForm;
         MemeberDashboardView memeberDashboardView;
+        ReservationForm reservationForm;
         public MemberDashboard()
         {
             InitializeComponent();
@@ -25,12 +26,13 @@ namespace Library_Management_System.View
             reserveBookForm = null;
             fineForm = null;
             memeberDashboardView = null;
+            reservationForm = null;
             this.Load += MemberDashboard_Load;
 
         }
         private void OpenDashboard()
         {
-    
+
             if (memeberDashboardView == null || memeberDashboardView.IsDisposed)
             {
                 memeberDashboardView = new MemeberDashboardView();
@@ -149,6 +151,28 @@ namespace Library_Management_System.View
         {
             fineForm.Dispose();
             fineForm = null;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (reservationForm == null || reservationForm.IsDisposed)
+            {
+                reservationForm = new ReservationForm();
+                reservationForm.FormClosed += ReservationForm_Closed;
+                reservationForm.MdiParent = this;
+                reservationForm.Dock = DockStyle.Fill;
+                reservationForm.Show();
+            }
+            else
+            {
+                reservationForm.Activate();
+            }
+        }
+
+        private void ReservationForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            reservationForm.Dispose();
+            reservationForm = null;
         }
     }
 }
