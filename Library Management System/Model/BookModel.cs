@@ -54,5 +54,10 @@ namespace Library_Management_System.Model
         {
             _bookDao.UpdateAsBorrowed(book);
         }
+
+        public List<MostBorrowedBook> GetMostBorrowedBooks()
+        {
+            return _bookDao.GetMostBorrowedBooks();
+        }
     }
 }

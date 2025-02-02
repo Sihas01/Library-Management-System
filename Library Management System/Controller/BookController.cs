@@ -14,10 +14,17 @@ namespace Library_Management_System.Controller
         private readonly IBookView _bookView;
         private readonly BookModel _bookModel;
         private readonly BorrowBookForm _borrowBookForm;
+        private readonly MostBooks _mostBooks;
 
         public BookController(IBookView bookView)
         {
             _bookView = bookView;
+            _bookModel = new BookModel();
+        }
+
+        public BookController(MostBooks mostBooks)
+        {
+            _mostBooks = mostBooks;
             _bookModel = new BookModel();
         }
 
@@ -179,6 +186,22 @@ namespace Library_Management_System.Controller
             catch (Exception e)
             {
                 _bookView.ShowMessage($"{e.Message}");
+            }
+        }
+
+        public void GetMostBorrowedBooks()
+        {
+            try
+            {
+
+                var mostBorrowedBooks = _bookModel.GetMostBorrowedBooks();
+
+                _mostBooks.DisplayMembers(mostBorrowedBooks);
+
+            }
+            catch (Exception e)
+            {
+                _mostBooks.ShowMessage($"Error fetching members: {e.Message}");
             }
         }
     }

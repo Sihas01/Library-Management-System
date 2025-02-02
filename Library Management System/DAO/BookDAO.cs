@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Library_Management_System.db;
 using Library_Management_System.Model;
+using Mysqlx.Crud;
 using static System.Reflection.Metadata.BlobBuilder;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -147,6 +149,55 @@ namespace Library_Management_System.DAO
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public List<MostBorrowedBook> GetMostBorrowedBooks(int limit =10)
+        {
+            try
+            {
+                var mostBorrowedBooks = new List<MostBorrowedBook>();
+
+                string query = $"SELECT b.id, b.title, COUNT(*) AS borrow_count " +
+                               $"FROM borrowingrecord br " +
+                $"INNER JOIN book b ON br.Book_id = b.id " +
+                               $"GROUP BY b.id, b.title " +
+                               $"ORDER BY borrow_count DESC " +
+                               $"LIMIT {limit};";
+
+                var result = _database.Select1(query);
+
+                if (result == null || result.Count == 0)
+                {
+                    return mostBorrowedBooks;
+                }
+
+                foreach (var row in result)
+                {
+                    try
+                    {
+                        var mostBorrowedBook = new MostBorrowedBook
+                        {
+                            BookId = Convert.ToInt32(row["id"]),
+                            BookTitle = row["title"],
+                            BorrowCount = Convert.ToInt32(row["borrow_count"]),
+                        };
+                        mostBorrowedBooks.Add(mostBorrowedBook);
+                    }
+                    catch (Exception innerEx)
+                    {
+                        Console.WriteLine($"Error processing row: {innerEx.Message}");
+                    }
+                }
+
+                return mostBorrowedBooks;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+
+                throw new ApplicationException("Error retrieving most borrowed books.", ex);
             }
         }
     }
