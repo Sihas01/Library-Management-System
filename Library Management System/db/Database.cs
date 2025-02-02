@@ -79,6 +79,11 @@ namespace Library_Management_System.db
             return ExecuteReader(query);
         }
 
+        public List<Dictionary<string, string>> Select1(string query)
+        {
+            return ExecuteReader(query);
+        }
+
         private List<Dictionary<string, string>> ExecuteReader(string query)
         {
             var result = new List<Dictionary<string, string>>();
@@ -107,6 +112,8 @@ namespace Library_Management_System.db
 
             return result;
         }
+
+        
 
 
     }

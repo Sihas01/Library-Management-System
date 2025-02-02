@@ -30,7 +30,8 @@ namespace Library_Management_System.Controller
                     adminLogin.ShowMessage("admin Found");
                     if(admin.Role == "Admin")
                     {
-                        adminLogin.ShowMessage("admin ");
+                        AdminDashboard adminDashboard = new AdminDashboard();
+                        adminDashboard.Show();
                     }else if(admin.Role == "Librarian")
                     {
                         Dashboard dashboard = new Dashboard();
