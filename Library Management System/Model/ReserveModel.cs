@@ -74,6 +74,11 @@ namespace Library_Management_System.Model
             return _reserveDAO.GetRecords(memberId);
         }
 
+        public Reserve GetRecordsByBook(int bookId)
+        {
+            return _reserveDAO.GetRecordsById(bookId);
+        }
+
         public bool ConformReservation(int bookid, int memeberid,int recordId)
         {
             BookModel bookModel = new BookModel();
@@ -83,7 +88,7 @@ namespace Library_Management_System.Model
                 return false;
             }
             BorrowingRecodModel borrowingRecodModel = new BorrowingRecodModel();
-            string isSuccess = borrowingRecodModel.BorrowBook(book.ISBN, memeberid);
+            string isSuccess = borrowingRecodModel.ConformBorrowBook(book.ISBN, memeberid);
             if (isSuccess == "success")
             {
                 bool isPass = _reserveDAO.UpdateRecord(recordId);
