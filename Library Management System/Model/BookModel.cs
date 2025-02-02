@@ -37,12 +37,19 @@ namespace Library_Management_System.Model
             return _bookDao.GetBooks();
         }
 
-        public Book GetBookByISBN(string isbn) {
+        public Book GetBookByISBN(string isbn)
+        {
             return _bookDao.GetBookByISBN(isbn);
         }
 
-        public void UpdateBook(Book book) {
-        _bookDao.UpdateBook(book);
+        public Book GetBookByID(int bookId)
+        {
+            return _bookDao.GetBookByID(bookId);
+        }
+
+        public void UpdateBook(Book book)
+        {
+            _bookDao.UpdateBook(book);
         }
 
         public void DeleteBook(string isbn)
@@ -54,6 +61,7 @@ namespace Library_Management_System.Model
         {
             _bookDao.UpdateAsBorrowed(book);
         }
+
 
         public List<MostBorrowedBook> GetMostBorrowedBooks()
         {

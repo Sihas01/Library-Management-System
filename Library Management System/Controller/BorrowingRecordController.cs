@@ -15,7 +15,7 @@ namespace Library_Management_System.Controller
         private BorrowingRecodModel _borrowingRecodModel;
         private BorrowBookForm _borrowBookForm;
         private ReturnBookForm _returnBookForm;
-        private BorrowingRecord _borrowingRecord;
+
         public BorrowingRecordController(BorrowBookForm borrowBookForm)
         {
             _borrowingRecodModel = new BorrowingRecodModel();
@@ -38,13 +38,13 @@ namespace Library_Management_System.Controller
                 {
                     _borrowBookForm.ShowMessage("Borrowed Successfully");
                 }
-                else if(isSuccess == "exsist")
+                else if (isSuccess == "not_available")
                 {
                     _borrowBookForm.ShowMessage("The book is not available for borrowing.");
                 }
                 else
                 {
-                    _borrowBookForm.ShowMessage("System error");
+                    _borrowBookForm.ShowMessage("System error occurred. Please try again later.");
                 }
             }
             catch (Exception ex)
@@ -75,10 +75,35 @@ namespace Library_Management_System.Controller
            
            
         }
-        public void fineCal()
-        {
-            _borrowingRecord.CalculateFine();
 
+
+        public void ReturnBook(int recordId)
+        {
+            if (recordId == 0)
+            {
+                _returnBookForm.ShowMessage("Select option first");
+            }
+            else
+            {
+                try
+                {
+                    bool isSuccess = _borrowingRecodModel.ReturnBook(recordId);
+                if (isSuccess)
+                {
+                    
+                    _returnBookForm.ShowMessage("Returned Book successfully");
+                    Getborrowrecords();
+                }
+                else
+                {
+                    _returnBookForm.ShowMessage("System Failer, try again later");
+                }
+                }
+                catch (Exception ex)
+                {
+                    _returnBookForm.ShowMessage($"{ex.Message}");
+                }
+            }
         }
       
     }
