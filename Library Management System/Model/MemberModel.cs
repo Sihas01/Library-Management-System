@@ -78,5 +78,10 @@ namespace Library_Management_System.Model
         public void DeleteMember(string email) {
             _memberDAO.DeleteMember(email);
         }
+
+        public List<ActiveMember> GetMostActiveMembers()
+        {
+            return _memberDAO.GetMostActiveMembers();
+        }
     }
 }

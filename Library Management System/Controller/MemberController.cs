@@ -15,12 +15,19 @@ namespace Library_Management_System.Controller
         private readonly IMemberView _memberView;
         private readonly MemberModel _memberModel;
         private readonly EmailController emailController;
+        private readonly ActiveMembers _activeMembers;
 
         public MemberController(IMemberView memberView)
         {
             _memberView = memberView;
             _memberModel = new MemberModel();
             emailController = new EmailController();
+        }
+
+        public MemberController(ActiveMembers activeMembers)
+        {
+            _activeMembers = activeMembers;
+            _memberModel = new MemberModel();
         }
 
         public void CreateUser()
@@ -137,6 +144,22 @@ namespace Library_Management_System.Controller
             catch (Exception e)
             {
                 _memberView.ShowMessage($"{e.Message}");
+            }
+        }
+
+        public void GetMostActiveMembers()
+        {
+            try
+            {
+
+                var activeMembers = _memberModel.GetMostActiveMembers();
+
+                _activeMembers.DisplayMembers(activeMembers);
+
+            }
+            catch (Exception e)
+            {
+                _activeMembers.ShowMessage($"Error fetching members: {e.Message}");
             }
         }
 
