@@ -34,7 +34,6 @@
             hopeButton3 = new ReaLTaiizor.Controls.HopeButton();
             poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
             panel1 = new Panel();
-            hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -47,11 +46,10 @@
             hopeButton3.Font = new Font("Segoe UI", 12F);
             hopeButton3.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton3.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton3.Location = new Point(46, 605);
-            hopeButton3.Margin = new Padding(3, 4, 3, 4);
+            hopeButton3.Location = new Point(40, 454);
             hopeButton3.Name = "hopeButton3";
             hopeButton3.PrimaryColor = Color.FromArgb(2, 39, 74);
-            hopeButton3.Size = new Size(335, 53);
+            hopeButton3.Size = new Size(293, 40);
             hopeButton3.SuccessColor = Color.FromArgb(103, 194, 58);
             hopeButton3.TabIndex = 24;
             hopeButton3.Text = "Return Book";
@@ -91,8 +89,7 @@
             poisonDataGridView1.EnableHeadersVisualStyles = false;
             poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.Location = new Point(46, 88);
-            poisonDataGridView1.Margin = new Padding(3, 4, 3, 4);
+            poisonDataGridView1.Location = new Point(40, 66);
             poisonDataGridView1.Name = "poisonDataGridView1";
             poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -106,7 +103,7 @@
             poisonDataGridView1.RowHeadersWidth = 51;
             poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView1.Size = new Size(890, 457);
+            poisonDataGridView1.Size = new Size(779, 343);
             poisonDataGridView1.TabIndex = 23;
             poisonDataGridView1.CellContentClick += poisonDataGridView1_CellContentClick;
             // 
@@ -114,43 +111,20 @@
             // 
             panel1.BackColor = Color.FromArgb(2, 39, 74);
             panel1.Location = new Point(-3, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1018, 39);
+            panel1.Size = new Size(891, 29);
             panel1.TabIndex = 21;
-            // 
-            // hopeButton1
-            // 
-            hopeButton1.BorderColor = Color.FromArgb(220, 223, 230);
-            hopeButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            hopeButton1.DangerColor = Color.FromArgb(245, 108, 108);
-            hopeButton1.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeButton1.Font = new Font("Segoe UI", 12F);
-            hopeButton1.HoverTextColor = Color.FromArgb(48, 49, 51);
-            hopeButton1.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton1.Location = new Point(411, 605);
-            hopeButton1.Margin = new Padding(3, 4, 3, 4);
-            hopeButton1.Name = "hopeButton1";
-            hopeButton1.PrimaryColor = Color.FromArgb(2, 39, 74);
-            hopeButton1.Size = new Size(335, 53);
-            hopeButton1.SuccessColor = Color.FromArgb(103, 194, 58);
-            hopeButton1.TabIndex = 25;
-            hopeButton1.Text = "Renew Book";
-            hopeButton1.TextColor = Color.White;
-            hopeButton1.WarningColor = Color.FromArgb(230, 162, 60);
             // 
             // ReturnBookForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1010, 748);
-            Controls.Add(hopeButton1);
+            ClientSize = new Size(884, 561);
             Controls.Add(hopeButton3);
             Controls.Add(poisonDataGridView1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ReturnBookForm";
             Text = "ReturnBookForm";
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
@@ -162,6 +136,5 @@
         private ReaLTaiizor.Controls.HopeButton hopeButton3;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
         private Panel panel1;
-        private ReaLTaiizor.Controls.HopeButton hopeButton1;
     }
 }

@@ -15,6 +15,7 @@ namespace Library_Management_System.Controller
         private readonly BookModel _bookModel;
         private readonly BorrowBookForm _borrowBookForm;
         private readonly MostBooks _mostBooks;
+        private readonly ReserveBookForm _reserveBookForm;
 
         public BookController(IBookView bookView)
         {
@@ -31,6 +32,12 @@ namespace Library_Management_System.Controller
         public BookController(BorrowBookForm borrowBookForm)
         {
             _borrowBookForm = borrowBookForm;
+            _bookModel = new BookModel();
+        }
+
+        public BookController(ReserveBookForm reserveBookForm)
+        {
+            _reserveBookForm = reserveBookForm;
             _bookModel = new BookModel();
         }
 
@@ -88,11 +95,29 @@ namespace Library_Management_System.Controller
             }
             catch (ApplicationException ex)
             {
-            _bookView.ShowMessage($"{ex.Message}");
+                _bookView.ShowMessage($"{ex.Message}");
             }
             catch (Exception ex)
             {
                 _bookView.ShowMessage("An unexpected error occurred: " + ex.Message);
+            }
+
+        }
+
+        public void ViewBooksForReserve()
+        {
+            try
+            {
+                var books = _bookModel.GetBooksForReserve();
+                _reserveBookForm.DisplayBooks(books);
+            }
+            catch (ApplicationException ex)
+            {
+                _reserveBookForm.ShowMessage($"{ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                _reserveBookForm.ShowMessage("An unexpected error occurred: " + ex.Message);
             }
 
         }

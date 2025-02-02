@@ -9,7 +9,7 @@ using Library_Management_System.View;
 
 namespace Library_Management_System.Controller
 {
-    
+
     internal class BorrowingRecordController
     {
         private BorrowingRecodModel _borrowingRecodModel;
@@ -21,7 +21,10 @@ namespace Library_Management_System.Controller
             _borrowingRecodModel = new BorrowingRecodModel();
             _borrowBookForm = borrowBookForm;
         }
-
+        public BorrowingRecordController()
+        {
+            _borrowingRecodModel = new BorrowingRecodModel();
+        }
         public BorrowingRecordController(ReturnBookForm returnBookForm)
         {
             _borrowingRecodModel = new BorrowingRecodModel();
@@ -69,11 +72,13 @@ namespace Library_Management_System.Controller
                 {
                     _returnBookForm.ShowMessage("error");
                 }
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 _returnBookForm.ShowMessage($"{ex.Message}");
             }
-           
-           
+
+
         }
 
 
@@ -88,16 +93,16 @@ namespace Library_Management_System.Controller
                 try
                 {
                     bool isSuccess = _borrowingRecodModel.ReturnBook(recordId);
-                if (isSuccess)
-                {
-                    
-                    _returnBookForm.ShowMessage("Returned Book successfully");
-                    Getborrowrecords();
-                }
-                else
-                {
-                    _returnBookForm.ShowMessage("System Failer, try again later");
-                }
+                    if (isSuccess)
+                    {
+
+                        _returnBookForm.ShowMessage("Returned Book successfully");
+                        Getborrowrecords();
+                    }
+                    else
+                    {
+                        _returnBookForm.ShowMessage("System Failer, try again later");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -105,6 +110,6 @@ namespace Library_Management_System.Controller
                 }
             }
         }
-      
+
     }
 }

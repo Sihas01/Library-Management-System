@@ -37,6 +37,11 @@ namespace Library_Management_System.Model
             return _bookDao.GetBooks();
         }
 
+        public List<Book> GetBooksForReserve()
+        {
+            return _bookDao.GetBooksForReserve();
+        }
+
         public Book GetBookByISBN(string isbn)
         {
             return _bookDao.GetBookByISBN(isbn);

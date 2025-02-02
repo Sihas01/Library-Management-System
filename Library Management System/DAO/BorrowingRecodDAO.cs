@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Library_Management_System.db;
 using Library_Management_System.Model;
 using Library_Management_System.View;
+using Microsoft.VisualBasic;
 
 namespace Library_Management_System.DAO
 {
@@ -134,6 +135,34 @@ namespace Library_Management_System.DAO
             catch (Exception ex)
             {
                 throw new ApplicationException("Error updatind data", ex);
+            }
+        }
+
+        public BorrowingRecord GetborrowRecord(int bookid)
+        {
+            try
+            {
+                var borrowingRecords = _database.Select("borrowingrecord", "*", $"Book_id = '{bookid}'");
+                if (borrowingRecords != null && borrowingRecords.Count > 0)
+                {
+                    var borrowingRecordsData = borrowingRecords[0];
+                    var borrowingRecord = new BorrowingRecord(
+                    Convert.ToInt32(borrowingRecordsData["Book_id"]), Convert.ToInt32(borrowingRecordsData["Member_id"]))
+
+
+                    {
+                        Borrow_Date = DateTime.Parse(borrowingRecordsData["borrowDate"].ToString()),
+                        Due_Date = DateTime.Parse(borrowingRecordsData["dueDate"].ToString()),
+                        Record_id = Convert.ToInt32(borrowingRecordsData["recordID"]),
+                    };
+                    return borrowingRecord;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error retrieving recod by book id.", ex);
             }
         }
 
