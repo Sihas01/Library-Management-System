@@ -72,6 +72,34 @@ namespace Library_Management_System.DAO
             }
         }
 
+        public Book GetBookByID(int bookid)
+        {
+            try
+            {
+                var books = _database.Select("book", "*", $"id = '{bookid}'");
+                if (books != null && books.Count > 0)
+                {
+                    var bookData = books[0];
+                    var book = new Book
+                    {
+                        Title = bookData["title"],
+                        Author = bookData["author"],
+                        ISBN = bookData["isbn"],
+                        Genre = bookData["genre"],
+                        IsAvailable = bookData["isAvailable"] == "1"
+                    };
+                    book.Id = Convert.ToInt32(bookData["id"]);
+                    return book;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error retrieving member by email.", ex);
+            }
+        }
+
         public List<Book> GetBooks()
         {
             try
@@ -152,7 +180,8 @@ namespace Library_Management_System.DAO
             }
         }
 
-        public List<MostBorrowedBook> GetMostBorrowedBooks(int limit =10)
+
+        public List<MostBorrowedBook> GetMostBorrowedBooks(int limit = 10)
         {
             try
             {

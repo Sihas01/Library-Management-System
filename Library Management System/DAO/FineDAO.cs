@@ -12,8 +12,9 @@ namespace Library_Management_System.DAO
     internal class FineDAO
     {
         private Database _database;
-        public FineDAO() {
-        _database = new Database();
+        public FineDAO()
+        {
+            _database = new Database();
         }
 
         public List<Fine> GetDataFromDatabase(int memberId)
@@ -27,12 +28,12 @@ namespace Library_Management_System.DAO
 
                 foreach (var row in result)
                 {
-                   
-                        var fine = new Fine(Convert.ToInt32(row["Member_id"]), Convert.ToDecimal(row["amount"]), row["status"])
-                        {
-                            Fine_Id = Convert.ToInt32(row["fineID"])
-                        };
-                        fines.Add(fine);
+
+                    var fine = new Fine(Convert.ToInt32(row["Member_id"]), Convert.ToDecimal(row["amount"]), row["status"])
+                    {
+                        Fine_Id = Convert.ToInt32(row["fineID"])
+                    };
+                    fines.Add(fine);
                 }
                 return fines;
             }
@@ -58,6 +59,27 @@ namespace Library_Management_System.DAO
                 string condition = $"fineID = '{fineId}'";
                 _database.Update("fine", setClauses, condition);
 
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool AddFine(Fine fine)
+        {
+            try
+            {
+                var columns = new List<string> { "amount", "status", "Member_id" };
+                var values = new List<object>
+                {
+                    fine.Amount,
+                    fine.Status,
+                    fine.MemberId
+                };
+
+                _database.Insert("fine", columns, values);
                 return true;
             }
             catch (Exception ex)

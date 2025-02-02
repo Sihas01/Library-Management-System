@@ -13,32 +13,67 @@ namespace Library_Management_System.Model
     {
         private BorrowingRecodDAO _borrowingRecodDAO;
         private BookModel _bookModel;
+        private BorrowingRecord _borrowingRecord;
+        private FineModel _fineModel;
 
         public BorrowingRecodModel()
         {
             _borrowingRecodDAO = new BorrowingRecodDAO();
             _bookModel = new BookModel();
+            _fineModel = new FineModel();
         }
 
-        public string BorrowBook(string bookISBN,int memberId)
+        public string BorrowBook(string bookISBN, int memberId)
         {
             Book book = _bookModel.GetBookByISBN(bookISBN);
-            if (book == null || !book.CheckAvailability()) {
-                return "exsist";
+            if (book == null || !book.CheckAvailability())
+            {
+                return "not_available";
             }
 
             BorrowingRecord borrowingRecord = new BorrowingRecord(book.Id, memberId);
             bool isSuccess = _borrowingRecodDAO.BorrowBook(borrowingRecord);
-            if (isSuccess) {
+            if (isSuccess)
+            {
                 book.MarkAsBorrowed();
                 _bookModel.UpdateBookAsBorrowed(book);
                 return "success";
             }
-            return "Error";
+            return "error";
         }
-        public List<BorrowingRecord> Getborrowedbooks(int memberid) 
+        public List<BorrowingRecord> Getborrowedbooks(int memberid)
         {
             return _borrowingRecodDAO.Getborrowedbooks(memberid);
+        }
+
+        public bool ReturnBook(int recordId)
+        {
+
+            var borrowingRecord = _borrowingRecodDAO.GetBorrowedRecords(recordId);
+            if (borrowingRecord != null)
+            {
+                borrowingRecord.Return_Date = DateTime.Now;
+                bool hasFine = borrowingRecord.CalculateFine();
+                if (hasFine)
+                {
+                    _fineModel.AddFine(borrowingRecord.Fine);
+                }
+
+                Book book = _bookModel.GetBookByID(borrowingRecord.BookId);
+                if (book != null)
+                {
+                    bool done = book.MarkAsReturned();
+                    if (done)
+                    {
+                        _bookModel.UpdateBookAsBorrowed(book);
+                        _borrowingRecodDAO.ReturnBook(borrowingRecord);
+                        return true;
+                    }
+
+                }
+
+            }
+            return false;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Library_Management_System.View
         private BorrowingRecord _borrowingRecord;
         private BorrowingRecordController _borrowingRecordController;
         private BindingSource _bindingSource;
+        private int recordId = 0;
         public ReturnBookForm()
         {
             InitializeComponent();
@@ -40,26 +41,22 @@ namespace Library_Management_System.View
         public DataTable ConvertToDataTable(List<BorrowingRecord> records)
         {
             DataTable dt = new DataTable();
-
+            dt.Columns.Add("recordID", typeof(int));
             dt.Columns.Add("bookID", typeof(int));
             dt.Columns.Add("memberID", typeof(int));
-            dt.Columns.Add("Return_Date", typeof(DateTime));
             dt.Columns.Add("Borrow_date", typeof(DateTime));
+            dt.Columns.Add("Due_Date", typeof(DateTime));
 
-            foreach (var record in records) 
+            foreach (var record in records)
             {
-                dt.Rows.Add(record.BookId,record.MemberId,record.Return_Date,record.Borrow_Date);
+                dt.Rows.Add(record.Record_id, record.BookId, record.MemberId, record.Borrow_Date, record.Due_Date);
             }
             return dt;
         }
-        private void hopeButton3_Click(object sender, EventArgs e)
-        {
-            _borrowingRecordController.fineCal();
-        }
+
 
         public void DisplayRecods(List<BorrowingRecord> recods)
         {
-            //ShowMessage($"{recods.Count}");
             DataTable dt = ConvertToDataTable(recods);
             _bindingSource.DataSource = dt;
             poisonDataGridView1.DataSource = _bindingSource;
@@ -67,12 +64,21 @@ namespace Library_Management_System.View
 
         private void poisonDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex >= 0)
-            //{
-            //    DataGridViewRow row = poisonDataGridView1.Rows[e.RowIndex];
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = poisonDataGridView1.Rows[e.RowIndex];
+                if (row.Cells["recordID"] != null)
+                {
+                    recordId = Convert.ToInt32(row.Cells["recordID"].Value);
+                }
+            }
 
-            //}
+        }
 
+        private void hopeButton3_Click(object sender, EventArgs e)
+        {
+            _borrowingRecordController.ReturnBook(recordId);
+            recordId = 0;
         }
     }
 }
