@@ -42,8 +42,8 @@ namespace Library_Management_System.View
         {
             DataTable dt = new DataTable();
 
-            dt.Columns.Add("MemberId", typeof(int));
-            dt.Columns.Add("MemberName", typeof(string));
+            dt.Columns.Add("BookId", typeof(int));
+            dt.Columns.Add("BookTitle", typeof(string));
             dt.Columns.Add("Borrow Count", typeof(string));
 
             // Add rows from the Member list
