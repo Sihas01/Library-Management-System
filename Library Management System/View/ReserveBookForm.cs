@@ -26,6 +26,7 @@ namespace Library_Management_System.View
             this.bookList.CellClick += bookList_CellClick;
             _bindingSource = new BindingSource();
             _reserveController = new ReserveController(this);
+            this.Activated += ReserveBook_Activated;
         }
 
         public void ShowMessage(string message)
@@ -90,6 +91,10 @@ namespace Library_Management_System.View
             _reserveController.AddReservation(selectedISBN);
         }
 
-     
+        private void ReserveBook_Activated(object sender, EventArgs e)
+        {
+            _bookController.ViewBooksForReserve();
+        }
+
     }
 }

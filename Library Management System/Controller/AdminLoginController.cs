@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Library_Management_System.Model;
+using Library_Management_System.Services;
 using Library_Management_System.View;
 using Microsoft.VisualBasic.Logging;
 
@@ -14,9 +15,21 @@ namespace Library_Management_System.Controller
         private readonly IAdminLogin adminLogin;
         private readonly AdminModel adminModel;
         private Admin admin;
+        private AdminDashboard currentDashboardModel;
+        private Dashboard currentDashboard;
         public AdminLoginController(IAdminLogin adminLogin) {
             this.adminLogin = adminLogin;
             this.adminModel = new AdminModel();
+        }
+
+        public AdminLoginController(AdminDashboard adminDashboard)
+        {
+            this.currentDashboardModel = adminDashboard;
+        }
+
+        public AdminLoginController(Dashboard adminDashboard)
+        {
+            this.currentDashboard = adminDashboard;
         }
 
         public void AdminLogin()
@@ -27,15 +40,18 @@ namespace Library_Management_System.Controller
                 string password = adminLogin.Password;
                 admin = adminModel.GetAdmin(name,password);
                 if (admin != null) {
-                    adminLogin.ShowMessage("admin Found");
-                    if(admin.Role == "Admin")
+                    if (adminLogin is AdminLogin form)
                     {
-                        AdminDashboard adminDashboard = new AdminDashboard();
-                        adminDashboard.Show();
+                        form.Hide(); 
+                    }
+                    if (admin.Role == "Admin")
+                    {
+                        AdminDashboard adminDashboard  = new AdminDashboard();
+                        adminDashboard.ShowDialog();
                     }else if(admin.Role == "Librarian")
                     {
                         Dashboard dashboard = new Dashboard();
-                        dashboard.Show();
+                        dashboard.ShowDialog();
 
                     }
                 }
@@ -49,6 +65,29 @@ namespace Library_Management_System.Controller
             catch (ArgumentException ex)
             {
                 adminLogin.ShowMessage($"Error: {ex.Message}");
+            }
+        }
+
+        public void Logout()
+        {
+            try
+            {
+
+                if (currentDashboardModel != null)
+                {
+                    currentDashboardModel.Close();
+                }
+                if(currentDashboard != null)
+                {
+                    currentDashboard.Close();
+                }
+                AdminLogin loginView = new AdminLogin();
+                loginView.Show();
+                
+                loginView.ShowMessage("You have been logged out.");
+            }
+            catch (Exception e)
+            {
             }
         }
     }
