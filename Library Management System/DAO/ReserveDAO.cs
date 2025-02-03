@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Library_Management_System.db;
@@ -70,7 +71,30 @@ namespace Library_Management_System.DAO
             }
         }
 
+        public Reserve GetRecordsById(int bookId)
+        {
+            try
+            {
+                var records = _database.Select("reservation", "*", $"Book_id = '{bookId}' AND status='Pending'");
+                if (records != null && records.Count > 0)
+                {
+                    var recordData = records[0];
+                    var record = new Reserve(
+                        Convert.ToInt32(recordData["Member_id"]), Convert.ToInt32(recordData["Book_id"]), DateTime.Parse(recordData["reservationDate"].ToString())
+                       )
+                    {
+                        ReservationId = Convert.ToInt32(recordData["reservationID"])
+                    };
+                    return record;
+                }
 
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error retrieving member by email.", ex);
+            }
+        }
         public bool UpdateRecord(int recordId)
         {
             try

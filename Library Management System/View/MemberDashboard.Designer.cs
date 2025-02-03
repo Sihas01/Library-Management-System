@@ -44,6 +44,8 @@
             button6 = new Button();
             panel5 = new Panel();
             button4 = new Button();
+            panel8 = new Panel();
+            button7 = new Button();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -52,6 +54,7 @@
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel5.SuspendLayout();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -96,6 +99,7 @@
             flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Controls.Add(panel7);
             flowLayoutPanel1.Controls.Add(panel5);
+            flowLayoutPanel1.Controls.Add(panel8);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 35);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -218,6 +222,7 @@
             // button6
             // 
             button6.BackColor = Color.FromArgb(2, 39, 74);
+            button6.Cursor = Cursors.Hand;
             button6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button6.ForeColor = Color.White;
             button6.Image = (Image)resources.GetObject("button6.Image");
@@ -243,6 +248,7 @@
             // button4
             // 
             button4.BackColor = Color.FromArgb(2, 39, 74);
+            button4.Cursor = Cursors.Hand;
             button4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
             button4.Image = (Image)resources.GetObject("button4.Image");
@@ -256,6 +262,32 @@
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(button7);
+            panel8.Location = new Point(3, 339);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(227, 45);
+            panel8.TabIndex = 8;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(2, 39, 74);
+            button7.Cursor = Cursors.Hand;
+            button7.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button7.ForeColor = Color.White;
+            button7.Image = (Image)resources.GetObject("button7.Image");
+            button7.ImageAlign = ContentAlignment.MiddleLeft;
+            button7.Location = new Point(-10, -10);
+            button7.Name = "button7";
+            button7.Padding = new Padding(25, 15, 0, 15);
+            button7.Size = new Size(241, 59);
+            button7.TabIndex = 9;
+            button7.Text = "         Log Out";
+            button7.TextAlign = ContentAlignment.MiddleLeft;
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // MemberDashboard
             // 
@@ -277,6 +309,7 @@
             panel6.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -297,5 +330,7 @@
         private Button button6;
         private Panel panel5;
         private Button button4;
+        private Panel panel8;
+        private Button button7;
     }
 }

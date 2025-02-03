@@ -26,6 +26,7 @@ namespace Library_Management_System.View
             this.Load += Fine_Load;
             this.poisonDataGridView1.CellClick += poisonDataGridView1_CellContentClick;
             _bindingSource = new BindingSource();
+            this.Activated += FineForm_Activated;
         }
 
         public void ShowMessage(string message)
@@ -85,6 +86,11 @@ namespace Library_Management_System.View
             _fineController.UpdateFineStatus(selectedFineID);
             selectedFineID = 0;
 
+        }
+
+        private void FineForm_Activated(object sender, EventArgs e)
+        {
+            _fineController.GetFines();
         }
     }
 }

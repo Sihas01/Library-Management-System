@@ -27,6 +27,7 @@ namespace Library_Management_System.View
             this.Load += BorrowRecordForm_Load;
             this.poisonDataGridView1.CellClick += poisonDataGridView1_CellContentClick;
             _bindingSource = new BindingSource();
+            this.Activated += ReturnBook_Activated;
 
         }
 
@@ -79,6 +80,11 @@ namespace Library_Management_System.View
         {
             _borrowingRecordController.ReturnBook(recordId);
             recordId = 0;
+        }
+
+        private void ReturnBook_Activated(object sender, EventArgs e)
+        {
+            _borrowingRecordController.Getborrowrecords();
         }
     }
 }

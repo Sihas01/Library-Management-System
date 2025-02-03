@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library_Management_System.Controller;
 
 namespace Library_Management_System.View
 {
@@ -93,6 +94,12 @@ namespace Library_Management_System.View
         {
             memberView.Dispose();
             memberView = null;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AdminLoginController adminLogin = new AdminLoginController(this);
+            adminLogin.Logout();
         }
     }
 }

@@ -53,6 +53,9 @@ namespace Library_Management_System.Controller
                 else if (isSuccess == "norecord")
                 {
                     _reserveBookForm.ShowMessage("No borrowing record found for the book.");
+                }else if(isSuccess == "notre")
+                {
+                    _reserveBookForm.ShowMessage("The book is not available for reservation.");
                 }
                 else
                 {

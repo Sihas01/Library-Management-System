@@ -31,14 +31,45 @@ namespace Library_Management_System.Model
                 return "not_available";
             }
 
-            BorrowingRecord borrowingRecord = new BorrowingRecord(book.Id, memberId);
-            bool isSuccess = _borrowingRecodDAO.BorrowBook(borrowingRecord);
-            if (isSuccess)
+            ReserveModel reserveModel = new ReserveModel();
+            Reserve reserve =  reserveModel.GetRecordsByBook(book.Id);
+            if(reserve == null)
             {
-                book.MarkAsBorrowed();
-                _bookModel.UpdateBookAsBorrowed(book);
-                return "success";
+                BorrowingRecord borrowingRecord = new BorrowingRecord(book.Id, memberId);
+                bool isSuccess = _borrowingRecodDAO.BorrowBook(borrowingRecord);
+                if (isSuccess)
+                {
+                    book.MarkAsBorrowed();
+                    _bookModel.UpdateBookAsBorrowed(book);
+                    return "success";
+                }
             }
+            else
+            {
+                return "not_available";
+            }
+            
+            return "error";
+        }
+
+        public string ConformBorrowBook(string bookISBN, int memberId)
+        {
+            Book book = _bookModel.GetBookByISBN(bookISBN);
+            if (book == null || !book.CheckAvailability())
+            {
+                return "not_available";
+            }
+
+                BorrowingRecord borrowingRecord = new BorrowingRecord(book.Id, memberId);
+                bool isSuccess = _borrowingRecodDAO.BorrowBook(borrowingRecord);
+                if (isSuccess)
+                {
+                    book.MarkAsBorrowed();
+                    _bookModel.UpdateBookAsBorrowed(book);
+                    return "success";
+                }
+
+
             return "error";
         }
         public List<BorrowingRecord> Getborrowedbooks(int memberid)

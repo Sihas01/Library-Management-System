@@ -44,16 +44,24 @@ namespace Library_Management_System.Model
 
                         if (record != null)
                         {
-                            Reserve reserve = new Reserve(memberid, book.Id, record.Due_Date);
-                            bool isSuccess = _reserveDAO.ReserveBook(reserve);
-
-                            if (isSuccess)
+                            Reserve reserveResult = GetRecordsByBook(book.Id);
+                            if (reserveResult == null)
                             {
-                                return "success"; 
+                                Reserve reserve = new Reserve(memberid, book.Id, record.Due_Date);
+                                bool isSuccess = _reserveDAO.ReserveBook(reserve);
+
+                                if (isSuccess)
+                                {
+                                    return "success";
+                                }
+                                else
+                                {
+                                    return "reservefailed";
+                                }
                             }
                             else
                             {
-                                return "reservefailed"; 
+                                return "notre";
                             }
                         }
                         else
@@ -62,6 +70,7 @@ namespace Library_Management_System.Model
                         }
                     }
                 }
+                return "no";
             }
             catch (Exception ex)
             {
@@ -74,6 +83,11 @@ namespace Library_Management_System.Model
             return _reserveDAO.GetRecords(memberId);
         }
 
+        public Reserve GetRecordsByBook(int bookId)
+        {
+            return _reserveDAO.GetRecordsById(bookId);
+        }
+
         public bool ConformReservation(int bookid, int memeberid,int recordId)
         {
             BookModel bookModel = new BookModel();
@@ -83,7 +97,7 @@ namespace Library_Management_System.Model
                 return false;
             }
             BorrowingRecodModel borrowingRecodModel = new BorrowingRecodModel();
-            string isSuccess = borrowingRecodModel.BorrowBook(book.ISBN, memeberid);
+            string isSuccess = borrowingRecodModel.ConformBorrowBook(book.ISBN, memeberid);
             if (isSuccess == "success")
             {
                 bool isPass = _reserveDAO.UpdateRecord(recordId);

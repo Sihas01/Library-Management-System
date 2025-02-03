@@ -25,6 +25,7 @@ namespace Library_Management_System.View
             this.Load += Reservationform_Load;
             this.bookList.CellClick += bookList_CellContentClick;
             _bindingSource = new BindingSource();
+            this.Activated += Reservation_Activated;
         }
 
         private void bookList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,6 +79,11 @@ namespace Library_Management_System.View
             reseveRecord.ConfirmReservation(selectedID,recordId);
             selectedID = 0;
             recordId = 0;   
+        }
+
+        private void Reservation_Activated(object sender, EventArgs e)
+        {
+            reseveRecord.Getborrowrecords();
         }
     }
 }

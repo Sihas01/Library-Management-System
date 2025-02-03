@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library_Management_System.Controller;
 
 namespace Library_Management_System.View
 {
@@ -77,6 +78,7 @@ namespace Library_Management_System.View
             }
             else
             {
+
                 borrowBookForm.Activate();
             }
         }
@@ -124,6 +126,7 @@ namespace Library_Management_System.View
                 reserveBookForm.Activate();
             }
         }
+
 
         private void reserveBookForm_Closed(object sender, FormClosedEventArgs e)
         {
@@ -173,6 +176,12 @@ namespace Library_Management_System.View
         {
             reservationForm.Dispose();
             reservationForm = null;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            AccountController accountController = new AccountController(this);
+            accountController.Logout();
         }
     }
 }

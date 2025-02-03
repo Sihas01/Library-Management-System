@@ -36,12 +36,15 @@
             button2 = new Button();
             panel4 = new Panel();
             button3 = new Button();
+            panel5 = new Panel();
+            button6 = new Button();
             panel1 = new Panel();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             flowLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,6 +54,7 @@
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(panel4);
+            flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 35);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -135,6 +139,31 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // panel5
+            // 
+            panel5.Controls.Add(button6);
+            panel5.Location = new Point(3, 186);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(227, 45);
+            panel5.TabIndex = 8;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.FromArgb(2, 39, 74);
+            button6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button6.ForeColor = Color.White;
+            button6.Image = (Image)resources.GetObject("button6.Image");
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(-4, -7);
+            button6.Name = "button6";
+            button6.Padding = new Padding(25, 15, 0, 15);
+            button6.Size = new Size(241, 59);
+            button6.TabIndex = 5;
+            button6.Text = "         Log Out";
+            button6.TextAlign = ContentAlignment.MiddleLeft;
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.White;
@@ -184,6 +213,7 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -199,5 +229,7 @@
         private Button button3;
         private Panel panel1;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
+        private Panel panel5;
+        private Button button6;
     }
 }

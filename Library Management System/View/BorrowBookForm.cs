@@ -27,6 +27,7 @@ namespace Library_Management_System.View
             this.bookList.CellClick += bookList_CellClick;
             _bindingSource = new BindingSource();
             _borrowController = new BorrowingRecordController(this);
+            this.Activated += BorrowBook_Activated;
         }
 
         public void ShowMessage(string message)
@@ -89,6 +90,11 @@ namespace Library_Management_System.View
         private void hopeButton3_Click(object sender, EventArgs e)
         {
             _borrowController.BorrowBook(selectedISBN);
+        }
+
+        private void BorrowBook_Activated(object sender, EventArgs e)
+        {
+            _bookController.ViewBooksForBorrow(); 
         }
     }
 }

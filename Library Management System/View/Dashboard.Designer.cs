@@ -38,8 +38,6 @@
             button2 = new Button();
             panel4 = new Panel();
             button3 = new Button();
-            panel6 = new Panel();
-            button5 = new Button();
             panel7 = new Panel();
             button6 = new Button();
             panel1.SuspendLayout();
@@ -47,7 +45,6 @@
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            panel6.SuspendLayout();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,7 +87,6 @@
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(panel4);
-            flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Controls.Add(panel7);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 35);
@@ -177,35 +173,10 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // panel6
-            // 
-            panel6.Controls.Add(button5);
-            panel6.Location = new Point(3, 186);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(227, 45);
-            panel6.TabIndex = 7;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.FromArgb(2, 39, 74);
-            button5.Cursor = Cursors.Hand;
-            button5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.White;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(-4, -7);
-            button5.Name = "button5";
-            button5.Padding = new Padding(25, 15, 0, 15);
-            button5.Size = new Size(241, 59);
-            button5.TabIndex = 2;
-            button5.Text = "         Manage Fine";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = false;
-            // 
             // panel7
             // 
             panel7.Controls.Add(button6);
-            panel7.Location = new Point(3, 237);
+            panel7.Location = new Point(3, 186);
             panel7.Name = "panel7";
             panel7.Size = new Size(227, 45);
             panel7.TabIndex = 7;
@@ -213,7 +184,7 @@
             // button6
             // 
             button6.BackColor = Color.FromArgb(2, 39, 74);
-            button6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button6.ForeColor = Color.White;
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.ImageAlign = ContentAlignment.MiddleLeft;
@@ -222,9 +193,10 @@
             button6.Padding = new Padding(25, 15, 0, 15);
             button6.Size = new Size(241, 59);
             button6.TabIndex = 2;
-            button6.Text = "         Delete Members";
+            button6.Text = "         Log Out";
             button6.TextAlign = ContentAlignment.MiddleLeft;
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // Dashboard
             // 
@@ -243,7 +215,6 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
-            panel6.ResumeLayout(false);
             panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -259,8 +230,6 @@
         private Button button2;
         private Panel panel4;
         private Button button3;
-        private Panel panel6;
-        private Button button5;
         private Panel panel7;
         private Button button6;
     }

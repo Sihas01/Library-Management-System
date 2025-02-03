@@ -14,6 +14,7 @@ namespace Library_Management_System.Controller
         private readonly ILogin login;
         private readonly MemberModel member;
         private readonly Msg msg;
+        private MemberDashboard memberDashboard;
 
         private Member member1;
 
@@ -27,6 +28,11 @@ namespace Library_Management_System.Controller
         {
             this.msg = msg;
             member = new MemberModel();
+        }
+
+        public AccountController(MemberDashboard memberDashboard)
+        {
+            this.memberDashboard = memberDashboard;
         }
 
         public void Login()
@@ -43,7 +49,6 @@ namespace Library_Management_System.Controller
                 if (member1 != null) 
                     {
                     LoggedInUser.Instance.CurrentUser = member1;
-                    login.ShowMessage("User Found");
 
                     if(member1.HasChangedPassword == false)
                     {
@@ -54,9 +59,12 @@ namespace Library_Management_System.Controller
                     }
                     else
                     {
-                        login.ShowMessage("memeber");
-                        MemberDashboard memberDashboard = new MemberDashboard();
-                        memberDashboard.Show();
+                        if (login is Form1 formLogin)
+                        {
+                            formLogin.Hide(); 
+                        }
+                        memberDashboard = new MemberDashboard();
+                        memberDashboard.ShowDialog();
 
                     }
                 }
@@ -107,6 +115,23 @@ namespace Library_Management_System.Controller
             catch (Exception e)
             {
                 msg.ShowMessage($"Unexpected error: {e.Message}");
+            }
+        }
+
+        public void Logout()
+        {
+            try
+            {
+                LoggedInUser.Instance.CurrentUser = null;
+
+                memberDashboard.Close();
+                Form1 loginView = new Form1();
+                loginView.Show();
+                
+                loginView.ShowMessage("You have been logged out.");
+            }
+            catch (Exception e)
+            {
             }
         }
     }
