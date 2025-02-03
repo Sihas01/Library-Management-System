@@ -38,7 +38,7 @@ namespace Library_Management_System.View
         public DataTable ConvertToDataTable(List<Book> books)
         {
             DataTable dt = new DataTable();
-
+            dt.Columns.Add("bookID", typeof(int));
             dt.Columns.Add("Title", typeof(string));
             dt.Columns.Add("Author", typeof(string));
             dt.Columns.Add("Genre", typeof(string));
@@ -46,7 +46,7 @@ namespace Library_Management_System.View
 
             foreach (var book in books)
             {
-                dt.Rows.Add(book.Title, book.Author, book.Genre, book.ISBN);
+                dt.Rows.Add(book.Id,book.Title, book.Author, book.Genre, book.ISBN);
             }
 
             return dt;

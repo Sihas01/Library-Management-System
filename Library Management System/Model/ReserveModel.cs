@@ -44,16 +44,24 @@ namespace Library_Management_System.Model
 
                         if (record != null)
                         {
-                            Reserve reserve = new Reserve(memberid, book.Id, record.Due_Date);
-                            bool isSuccess = _reserveDAO.ReserveBook(reserve);
-
-                            if (isSuccess)
+                            Reserve reserveResult = GetRecordsByBook(book.Id);
+                            if (reserveResult == null)
                             {
-                                return "success"; 
+                                Reserve reserve = new Reserve(memberid, book.Id, record.Due_Date);
+                                bool isSuccess = _reserveDAO.ReserveBook(reserve);
+
+                                if (isSuccess)
+                                {
+                                    return "success";
+                                }
+                                else
+                                {
+                                    return "reservefailed";
+                                }
                             }
                             else
                             {
-                                return "reservefailed"; 
+                                return "notre";
                             }
                         }
                         else
@@ -62,6 +70,7 @@ namespace Library_Management_System.Model
                         }
                     }
                 }
+                return "no";
             }
             catch (Exception ex)
             {
